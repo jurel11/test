@@ -1,0 +1,1145 @@
+<title>Planer stojnice Isotrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Saira+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.128.0/three.min.js"></script>
+<style>
+  :root{
+    --paper:#E9EBE5; --surface:#F6F7F3; --surface-2:#DFE2DA; --sunk:#D3D7CB;
+    --ink:#15181A; --ink-soft:#5A605C; --ink-faint:#878D87;
+    --rule:#C4C9BD; --rule-soft:#D7DBD1;
+    --accent:#C9970A; --accent-bg:#F3E3AE; --rust:#A2431D; --ok:#3F6B45;
+    --scene:#DCDFD6; --grid:#C2C7BA;
+    --f-display:"Saira Condensed","Arial Narrow",Helvetica,sans-serif;
+    --f-body:"Source Sans 3",system-ui,-apple-system,Segoe UI,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#121413; --surface:#1A1D1B; --surface-2:#222624; --sunk:#0D0F0E;
+      --ink:#E8EBE3; --ink-soft:#A2A9A1; --ink-faint:#787F78;
+      --rule:#343934; --rule-soft:#282D28;
+      --accent:#EFC01C; --accent-bg:#3A3009; --rust:#D2764A; --ok:#7BB183;
+      --scene:#191C1B; --grid:#2C312E;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#121413; --surface:#1A1D1B; --surface-2:#222624; --sunk:#0D0F0E;
+    --ink:#E8EBE3; --ink-soft:#A2A9A1; --ink-faint:#787F78;
+    --rule:#343934; --rule-soft:#282D28;
+    --accent:#EFC01C; --accent-bg:#3A3009; --rust:#D2764A; --ok:#7BB183;
+    --scene:#191C1B; --grid:#2C312E;
+  }
+
+  html,body{height:100%;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;}
+  h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;line-height:1.05;}
+  button{font-family:inherit;color:inherit;}
+
+  .app{
+    display:grid;
+    grid-template-columns:238px minmax(0,1fr) 262px;
+    grid-template-rows:auto minmax(0,1fr);
+    gap:0;
+    height:100%;
+    max-width:1560px;
+    margin:0 auto;
+    border-left:1px solid var(--rule);
+    border-right:1px solid var(--rule);
+  }
+
+  /* ---- top bar ---- */
+  .bar{
+    grid-column:1/-1;
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
+    padding:11px 16px;
+    border-bottom:1px solid var(--rule);
+    background:var(--surface);
+  }
+  .brand{display:flex;align-items:baseline;gap:10px;margin-right:auto;}
+  .brand h1{font-size:21px;text-transform:uppercase;letter-spacing:.02em;}
+  .brand span{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);}
+  .ctl{display:flex;align-items:center;gap:7px;}
+  .ctl > label{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);}
+  select{
+    font-family:var(--f-mono);font-size:12px;background:var(--paper);color:var(--ink);
+    border:1px solid var(--rule);padding:5px 7px;
+  }
+  .seg{display:flex;border:1px solid var(--rule);}
+  .seg button{
+    appearance:none;background:none;border:0;border-right:1px solid var(--rule);
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+    padding:6px 10px;cursor:pointer;color:var(--ink-soft);
+  }
+  .seg button:last-child{border-right:0;}
+  .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+  .seg button:focus-visible, .chip:focus-visible, .btn:focus-visible, select:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+
+  /* ---- panels ---- */
+  aside{background:var(--surface);overflow-y:auto;min-height:0;}
+  aside.left{border-right:1px solid var(--rule);}
+  aside.right{border-left:1px solid var(--rule);}
+  .phead{
+    position:sticky;top:0;z-index:2;background:var(--surface);
+    padding:12px 14px 7px;border-bottom:1px solid var(--rule-soft);
+  }
+  .phead h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;}
+  .phead p{margin:3px 0 0;font-size:12.5px;color:var(--ink-faint);}
+  .group{padding:12px 14px 4px;}
+  .group > h3{
+    font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:8px;
+  }
+  .chip{
+    display:block;width:100%;text-align:left;appearance:none;cursor:pointer;
+    background:var(--paper);border:1px solid var(--rule-soft);border-left:3px solid var(--rule);
+    padding:7px 9px;margin-bottom:5px;
+  }
+  .chip:hover{border-color:var(--accent);border-left-color:var(--accent);}
+  .chip b{display:block;font-size:13.5px;font-weight:600;}
+  .chip span{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-faint);margin-top:1px;}
+  .chip.prod{border-left-color:var(--accent);}
+  .chip.demo{border-left-color:var(--rust);}
+
+  /* ---- stage ---- */
+  .stage{position:relative;min-width:0;min-height:0;background:var(--scene);}
+  #cv{display:block;width:100%;height:100%;touch-action:none;cursor:grab;}
+  #cv.dragging{cursor:grabbing;}
+  .hint{
+    position:absolute;left:12px;bottom:12px;right:12px;
+    font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;color:var(--ink-faint);
+    pointer-events:none;display:flex;flex-wrap:wrap;gap:4px 16px;
+  }
+  .badge{
+    position:absolute;left:12px;top:12px;
+    font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+    background:var(--surface);border:1px solid var(--rule);padding:4px 9px;color:var(--ink-soft);
+  }
+  .loading{
+    position:absolute;inset:0;display:grid;place-items:center;
+    font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+    background:var(--scene);
+  }
+
+  /* ---- inspector ---- */
+  .sec{padding:12px 14px;border-bottom:1px solid var(--rule-soft);}
+  .sec h3{font-size:13px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;}
+  .kv{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:3px 0;}
+  .kv dt{color:var(--ink-faint);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px;}
+  .kv dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;}
+  .btnrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .btn{
+    appearance:none;background:var(--paper);border:1px solid var(--rule);cursor:pointer;
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;
+  }
+  .btn:hover{border-color:var(--accent);}
+  .btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .btn.primary:hover{background:var(--accent);border-color:var(--accent);color:#15181A;}
+  .btn.danger:hover{border-color:var(--rust);color:var(--rust);}
+  .btn[disabled]{opacity:.4;cursor:not-allowed;}
+  .empty{font-size:13px;color:var(--ink-faint);}
+
+  table{border-collapse:collapse;width:100%;font-size:13px;}
+  .bom td{padding:4px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top;}
+  .bom td.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:8px;}
+  .bom tr:last-child td{border-bottom:0;}
+  .bom tr.sel td{background:var(--accent-bg);}
+  .bom tbody tr{cursor:pointer;}
+  .totals{margin-top:10px;border-top:2px solid var(--ink);padding-top:8px;}
+  .meter{height:6px;background:var(--sunk);margin-top:6px;}
+  .meter i{display:block;height:100%;background:var(--accent);}
+
+  .saves{display:flex;flex-direction:column;gap:4px;margin-top:8px;}
+  .save{display:flex;gap:6px;align-items:center;font-size:12.5px;}
+  .save button:first-child{
+    flex:1;text-align:left;background:var(--paper);border:1px solid var(--rule-soft);
+    padding:5px 8px;cursor:pointer;font-family:var(--f-mono);font-size:11.5px;
+  }
+  .save button:first-child:hover{border-color:var(--accent);}
+  .save .x{background:none;border:0;cursor:pointer;color:var(--ink-faint);font-size:15px;line-height:1;padding:2px 5px;}
+  .save .x:hover{color:var(--rust);}
+  .status{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-faint);margin-top:8px;letter-spacing:.05em;}
+
+  @media (max-width:1000px){
+    html,body{height:auto;}
+    .app{grid-template-columns:1fr;height:auto;border:0;}
+    .stage{height:58vh;min-height:330px;order:1;}
+    aside.left{order:2;border-right:0;border-bottom:1px solid var(--rule);max-height:none;}
+    aside.right{order:3;border-left:0;}
+    .group{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:5px;align-items:start;}
+    .group > h3{grid-column:1/-1;}
+    .chip{margin-bottom:0;}
+    .hint{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+
+<div class="app">
+  <div class="bar">
+    <div class="brand">
+      <h1>Planer stojnice</h1>
+      <span>Isotrack · 3D postavitev</span>
+    </div>
+
+    <div class="ctl">
+      <label for="tentSize">Šotor</label>
+      <select id="tentSize">
+        <option value="3000x3000">3 × 3 m</option>
+        <option value="4000x4000">4 × 4 m</option>
+        <option value="6000x3000" selected>6 × 3 m</option>
+        <option value="8000x4000">8 × 4 m</option>
+        <option value="0x0">brez šotora</option>
+      </select>
+    </div>
+
+    <div class="ctl">
+      <label>Stene</label>
+      <div class="seg" id="walls">
+        <button type="button" data-wall="back" aria-pressed="true">Zadaj</button>
+        <button type="button" data-wall="left" aria-pressed="true">Levo</button>
+        <button type="button" data-wall="right" aria-pressed="false">Desno</button>
+        <button type="button" data-wall="front" aria-pressed="false">Spredaj</button>
+      </div>
+    </div>
+
+    <div class="ctl">
+      <label for="roofMode">Streha</label>
+      <select id="roofMode">
+        <option value="ghost" selected>prosojna</option>
+        <option value="solid">polna</option>
+        <option value="off">skrita</option>
+      </select>
+    </div>
+
+    <div class="ctl">
+      <label>Pogled</label>
+      <div class="seg" id="views">
+        <button type="button" data-view="iso" aria-pressed="true">3D</button>
+        <button type="button" data-view="top">Tloris</button>
+        <button type="button" data-view="front">Naris</button>
+      </div>
+    </div>
+  </div>
+
+  <aside class="left">
+    <div class="phead">
+      <h2>Katalog</h2>
+      <p>Klikni predmet — pojavi se na sredini in ga povlečeš na mesto.</p>
+    </div>
+    <div id="catalog"></div>
+  </aside>
+
+  <div class="stage">
+    <canvas id="cv"></canvas>
+    <div class="badge" id="badge">6000 × 3000 mm</div>
+    <div class="loading" id="loading">Nalaganje 3D pogleda…</div>
+    <div class="hint">
+      <span>VLEKA PRAZNINE = VRTENJE</span>
+      <span>KOLESCE = PRIBLIŽANJE</span>
+      <span>VLEKA PREDMETA = PREMIK</span>
+      <span>R = ZAVRTI 15°</span>
+      <span>SHIFT+R = 90°</span>
+      <span>D = PODVOJI</span>
+      <span>DEL = IZBRIŠI</span>
+      <span>CTRL+Z = RAZVELJAVI</span>
+    </div>
+  </div>
+
+  <aside class="right">
+    <div class="phead">
+      <h2>Izbrani predmet</h2>
+      <p id="selName">Nič ni izbrano</p>
+    </div>
+
+    <div class="sec" id="inspector">
+      <dl id="selSpecs"><p class="empty">Klikni predmet v 3D pogledu ali ga dodaj iz kataloga.</p></dl>
+      <div class="btnrow">
+        <button class="btn" id="rot15" disabled>↻ 15°</button>
+        <button class="btn" id="rot90" disabled>↻ 90°</button>
+        <button class="btn" id="dup" disabled>Podvoji</button>
+        <button class="btn" id="center" disabled>Na sredino</button>
+        <button class="btn danger" id="del" disabled>Izbriši</button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3>Hitra dejanja</h3>
+      <div class="ctl" style="gap:6px">
+        <select id="fillType">
+          <option value="l">IsoTrack L</option>
+          <option value="h">IsoTrack H</option>
+          <option value="x">IsoTrack X</option>
+          <option value="tmat">IsoTrack tMAT</option>
+        </select>
+        <button class="btn primary" id="fill">Zapolni tla</button>
+      </div>
+      <div class="btnrow">
+        <button class="btn" id="demoPath">Demo pot spredaj</button>
+        <button class="btn" id="preset">Predlagana postavitev</button>
+        <button class="btn danger" id="clearAll">Počisti vse</button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3>Kosovnica</h3>
+      <table class="bom"><tbody id="bom"></tbody></table>
+      <div class="totals">
+        <dl class="kv"><dt>Predmetov</dt><dd id="tCount">0</dd></dl>
+        <dl class="kv"><dt>Masa</dt><dd id="tMass">0 kg</dd></dl>
+        <dl class="kv"><dt>Oprema</dt><dd id="tCost">0 €</dd></dl>
+        <dl class="kv"><dt>Pokritost tal</dt><dd id="tCover">0 %</dd></dl>
+        <div class="meter"><i id="coverBar" style="width:0%"></i></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3>Postavitve</h3>
+      <div class="btnrow">
+        <button class="btn primary" id="save">Shrani postavitev</button>
+      </div>
+      <div class="saves" id="saves"></div>
+      <p class="status" id="storeStatus">Samodejno shranjevanje v ta brskalnik.</p>
+    </div>
+
+    <div class="sec">
+      <p class="empty">Mere izdelkov so iz javnih katalogov serij L, H, X in tMAT; pred naročilom jih potrdi v proizvodnji. Cene opreme so orientacijske, brez DDV.</p>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     KATALOG
+     w = širina (X), d = globina (Z), h = višina (Y), vse v mm
+     ========================================================= */
+  var CAT = [
+    {group:"Izdelki Isotrack", kind:"prod", items:[
+      {id:"l",    name:"IsoTrack L",        w:2410, d:1200, h:12,  kg:36,   eur:0, note:"80 t · 2,89 m²",  floor:true, color:0x4A5157},
+      {id:"h",    name:"IsoTrack H",        w:3000, d:2500, h:40,  kg:295,  eur:0, note:"150 t · 7,50 m²", floor:true, color:0x434A50},
+      {id:"x",    name:"IsoTrack X",        w:4000, d:2000, h:94,  kg:360,  eur:0, note:"200 t · 6,84 m²", floor:true, color:0x3C4349},
+      {id:"tmat", name:"IsoTrack tMAT",     w:3000, d:2000, h:47,  kg:235,  eur:0, note:"160 t/m² · 6 m²", floor:true, color:0x474E54}
+    ]},
+    {group:"Oprema stojnice", kind:"eq", items:[
+      {id:"pult",     name:"Pult 1800",          w:1800, d:600,  h:1100, kg:45, eur:450, note:"pultna plošča iz odreza", color:0x4E555B},
+      {id:"pultS",    name:"Mali pult 1000",     w:1000, d:500,  h:1100, kg:30, eur:280, color:0x4E555B},
+      {id:"vitrina",  name:"Stojalo z vzorci",   w:600,  d:450,  h:1800, kg:40, eur:320, note:"prerezi L/H/X/tMAT", color:0x5B636A},
+      {id:"back3",    name:"Backdrop 3 m",       w:3000, d:100,  h:2300, kg:18, eur:380, color:0x2A2F33},
+      {id:"back6",    name:"Backdrop 6 m",       w:6000, d:100,  h:2300, kg:32, eur:600, color:0x2A2F33},
+      {id:"tv",       name:"Zaslon 55″",         w:1250, d:450,  h:1700, kg:35, eur:250, note:"na stojalu", color:0x20242A},
+      {id:"rollup",   name:"Roll-up",            w:850,  d:300,  h:2100, kg:6,  eur:90,  color:0x5B636A},
+      {id:"mizaV",    name:"Visoka miza",        w:700,  d:700,  h:1100, kg:14, eur:70,  cyl:true, color:0x697178},
+      {id:"stolB",    name:"Barski stol",        w:400,  d:400,  h:760,  kg:6,  eur:45,  cyl:true, color:0x5F676D},
+      {id:"mizaN",    name:"Miza za sestanke",   w:1200, d:700,  h:750,  kg:20, eur:120, color:0x697178},
+      {id:"stol",     name:"Stol",               w:450,  d:450,  h:850,  kg:5,  eur:40,  color:0x5F676D},
+      {id:"luc",      name:"LED reflektor 50 W", w:300,  d:250,  h:250,  kg:3,  eur:55,  color:0x2E3338},
+      {id:"boben",    name:"Kabelski boben",     w:400,  d:400,  h:380,  kg:8,  eur:60,  color:0x3A4045},
+      {id:"predpr",   name:"Predpražnik",        w:1500, d:900,  h:20,   kg:8,  eur:45,  color:0x2B3034},
+      {id:"kos",      name:"Koš za smeti",       w:400,  d:400,  h:700,  kg:4,  eur:35,  cyl:true, color:0x4E555B},
+      {id:"gasilnik", name:"Gasilnik",           w:250,  d:250,  h:650,  kg:9,  eur:45,  cyl:true, color:0x8E2F1C},
+      {id:"hladilnik",name:"Hladilnik",          w:600,  d:600,  h:850,  kg:35, eur:180, color:0x656D73},
+      {id:"kava",     name:"Barista pult",       w:1400, d:700,  h:1200, kg:90, eur:550, note:"najem z osebjem", color:0x54383A},
+      {id:"letaki",   name:"Stojalo za letake",  w:300,  d:300,  h:1400, kg:5,  eur:60,  color:0x5B636A},
+      {id:"rastlina", name:"Rastlina v loncu",   w:600,  d:600,  h:1400, kg:18, eur:70,  cyl:true, color:0x4C6B4A},
+      {id:"zaboj",    name:"Zaboj za zalogo",    w:800,  d:600,  h:700,  kg:15, eur:60,  color:0x454C52},
+      {id:"darila",   name:"Škatla z darili",    w:600,  d:400,  h:400,  kg:12, eur:0,   color:0x8A6A3A},
+      {id:"utez",     name:"Utež za nogo",       w:450,  d:450,  h:120,  kg:30, eur:40,  color:0x25292D},
+      {id:"oseba",    name:"Oseba (merilo)",     w:500,  d:300,  h:1750, kg:0,  eur:0,   color:0x7A8288}
+    ]},
+    {group:"Demo in zunanji prostor", kind:"demo", items:[
+      {id:"skrinja",  name:"Blatna skrinja",     w:850,  d:800,  h:650,  kg:60,   eur:350, note:"akril, demo", color:0x8FA0A6, glass:true},
+      {id:"paleta",   name:"Euro paleta",        w:1200, d:800,  h:145,  kg:25,   eur:0,   color:0x7A6338},
+      {id:"vilicar",  name:"Viličar",            w:2800, d:1200, h:2200, kg:2500, eur:0,   note:"demo obremenitve", color:0xB08A1E},
+      {id:"bager",    name:"Mini bager",         w:3800, d:1700, h:2500, kg:1800, eur:0,   color:0xB08A1E},
+      {id:"bloki",    name:"Betonski bloki",     w:1600, d:800,  h:800,  kg:2000, eur:0,   color:0x8A8F8C},
+      {id:"flag",     name:"Beach flag",         w:450,  d:110,  h:3400, kg:12,   eur:150, color:0x2A2F33},
+      {id:"ograja",   name:"Ograja 3,5 m",       w:3500, d:60,   h:1100, kg:25,   eur:0,   color:0x555C61},
+      {id:"stozec",   name:"Prometni stožec",    w:400,  d:400,  h:700,  kg:3,    eur:12,  cyl:true, color:0xB4501E}
+    ]}
+  ];
+
+  var BYID = {};
+  CAT.forEach(function(g){ g.items.forEach(function(it){ it.kind=g.kind; BYID[it.id]=it; }); });
+
+  /* =========================================================
+     STANJE
+     ========================================================= */
+  var state = {
+    tent:{w:6000,d:3000},
+    walls:{back:true,left:true,right:false,front:false},
+    roof:"ghost",
+    objects:[]      // {uid, type, x, z, rot}
+  };
+  var selected = null;   // uid
+  var undoStack = [];
+  var meshes = {};       // uid -> THREE.Group
+
+  /* =========================================================
+     THREE
+     ========================================================= */
+  if(typeof THREE === "undefined"){
+    document.getElementById("loading").textContent = "3D knjižnice ni bilo mogoče naložiti.";
+    return;
+  }
+  var cv = document.getElementById("cv");
+  var renderer = new THREE.WebGLRenderer({canvas:cv, antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(38, 1, 50, 80000);
+
+  var hemi = new THREE.HemisphereLight(0xffffff, 0x8a8f86, 0.85);
+  scene.add(hemi);
+  var sun = new THREE.DirectionalLight(0xffffff, 0.75);
+  sun.position.set(-6000, 9000, 5200);
+  sun.castShadow = true;
+  sun.shadow.mapSize.width = 2048; sun.shadow.mapSize.height = 2048;
+  var sc = sun.shadow.camera;
+  sc.left=-9000; sc.right=9000; sc.top=9000; sc.bottom=-9000; sc.near=100; sc.far=26000;
+  scene.add(sun);
+
+  var groundMat = new THREE.MeshLambertMaterial({color:0xd5d9cd});
+  var ground = new THREE.Mesh(new THREE.PlaneGeometry(40000,40000), groundMat);
+  ground.rotation.x = -Math.PI/2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  var grid = new THREE.GridHelper(24000, 24, 0xc2c7ba, 0xc2c7ba);
+  grid.position.y = 1;
+  grid.material.transparent = true;
+  grid.material.opacity = .5;
+  scene.add(grid);
+
+  var tentGroup = new THREE.Group();   scene.add(tentGroup);
+  var objGroup  = new THREE.Group();   scene.add(objGroup);
+  var selBox = null;
+
+  /* ---- tema ---- */
+  function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function applyTheme(){
+    var bg = new THREE.Color(cssVar("--scene") || "#dcdfd6");
+    renderer.setClearColor(bg, 1);
+    scene.fog = null;
+    groundMat.color = new THREE.Color(cssVar("--paper") || "#e9ebe5");
+    grid.material.vertexColors = false;
+    grid.material.color = new THREE.Color(cssVar("--grid") || "#c2c7ba");
+    grid.material.needsUpdate = true;
+    var dark = bg.r + bg.g + bg.b < 1.2;
+    hemi.intensity = dark ? 1.0 : .85;
+    sun.intensity = dark ? .55 : .75;
+  }
+  applyTheme();
+  if(window.matchMedia){
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if(mq.addEventListener) mq.addEventListener("change", applyTheme);
+  }
+
+  /* ---- šotor ---- */
+  function buildTent(){
+    while(tentGroup.children.length) tentGroup.remove(tentGroup.children[0]);
+    var W = state.tent.w, D = state.tent.d;
+    document.getElementById("badge").textContent = W ? (W + " × " + D + " mm") : "brez šotora";
+    if(!W || !D) return;
+
+    var He = 2100, Hr = 3200, o = 120, legW = 60;
+    var darkMat  = new THREE.MeshLambertMaterial({color:0x1B1E21});
+    var wallMat  = new THREE.MeshLambertMaterial({color:0x23272B, transparent:true, opacity:.94, side:THREE.DoubleSide});
+
+    // noge
+    [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(s){
+      var leg = new THREE.Mesh(new THREE.BoxGeometry(legW, He, legW), darkMat);
+      leg.position.set(s[0]*(W/2-legW/2), He/2, s[1]*(D/2-legW/2));
+      leg.castShadow = true;
+      tentGroup.add(leg);
+    });
+
+    // streha (štirikapnica s slemenom po daljši osi)
+    if(state.roof !== "off"){
+      var rl = Math.max(0,(W-D)/2);
+      var A=[-W/2-o,He,-D/2-o], B=[W/2+o,He,-D/2-o], C=[W/2+o,He,D/2+o], E=[-W/2-o,He,D/2+o];
+      var R1=[-rl,Hr,0], R2=[rl,Hr,0];
+      var tri = [].concat(A,B,R2, A,R2,R1, E,R1,R2, E,R2,C, A,R1,E, B,C,R2);
+      var g = new THREE.BufferGeometry();
+      g.setAttribute("position", new THREE.Float32BufferAttribute(tri,3));
+      g.computeVertexNormals();
+      var ghost = state.roof === "ghost";
+      var roof = new THREE.Mesh(g, new THREE.MeshLambertMaterial({
+        color:0x15181A, side:THREE.DoubleSide,
+        transparent:true, opacity: ghost ? .22 : 1,
+        depthWrite: !ghost
+      }));
+      roof.castShadow = !ghost;
+      tentGroup.add(roof);
+
+      // lambrekin z napisom
+      var tex = valanceTexture();
+      var vMat = new THREE.MeshLambertMaterial({map:tex});
+      [[0,  D/2+o, W+2*o, 0], [0, -D/2-o, W+2*o, Math.PI], [-W/2-o, 0, D+2*o, Math.PI/2], [W/2+o, 0, D+2*o, -Math.PI/2]]
+      .forEach(function(v){
+        var m = new THREE.Mesh(new THREE.BoxGeometry(v[2], 300, 20), vMat);
+        m.position.set(v[0], He-150, v[1]);
+        m.rotation.y = v[3];
+        tentGroup.add(m);
+      });
+    }
+
+    // stene
+    var sides = {
+      back:  [0, -D/2, W, 0],
+      front: [0,  D/2, W, 0],
+      left:  [-W/2, 0, D, Math.PI/2],
+      right: [ W/2, 0, D, Math.PI/2]
+    };
+    Object.keys(sides).forEach(function(k){
+      if(!state.walls[k]) return;
+      var v = sides[k];
+      var m = new THREE.Mesh(new THREE.PlaneGeometry(v[2], He), wallMat);
+      m.position.set(v[0], He/2, v[1]);
+      m.rotation.y = v[3];
+      m.receiveShadow = true;
+      tentGroup.add(m);
+    });
+
+    // obris tlorisa
+    var outline = new THREE.LineSegments(
+      new THREE.EdgesGeometry(new THREE.BoxGeometry(W, 2, D)),
+      new THREE.LineBasicMaterial({color:0xC9970A})
+    );
+    outline.position.y = 3;
+    tentGroup.add(outline);
+  }
+
+  var _vt = null;
+  function valanceTexture(){
+    if(_vt) return _vt;
+    var c = document.createElement("canvas");
+    c.width = 1024; c.height = 96;
+    var x = c.getContext("2d");
+    x.fillStyle = "#121415"; x.fillRect(0,0,1024,96);
+    x.fillStyle = "#EFC01C";
+    x.font = "600 46px 'Saira Condensed', Arial Narrow, sans-serif";
+    x.textBaseline = "middle";
+    for(var i=0;i<4;i++) x.fillText("ISOTRACK", 40 + i*256, 52);
+    _vt = new THREE.CanvasTexture(c);
+    _vt.wrapS = THREE.RepeatWrapping;
+    _vt.repeat.x = 1;
+    return _vt;
+  }
+
+  /* ---- predmeti ---- */
+  function makeMesh(o){
+    var def = BYID[o.type];
+    var g = new THREE.Group();
+    var geo = def.cyl
+      ? new THREE.CylinderGeometry(def.w/2, def.w/2, def.h, 24)
+      : new THREE.BoxGeometry(def.w, def.h, def.d);
+    var mat = new THREE.MeshLambertMaterial({
+      color: def.color,
+      transparent: !!def.glass,
+      opacity: def.glass ? .55 : 1
+    });
+    var m = new THREE.Mesh(geo, mat);
+    m.position.y = def.h/2;
+    m.castShadow = true;
+    m.receiveShadow = true;
+    g.add(m);
+
+    var edges = new THREE.LineSegments(
+      new THREE.EdgesGeometry(geo),
+      new THREE.LineBasicMaterial({color: def.kind==="prod" ? 0xC9970A : 0x0d0f10, transparent:true, opacity: def.kind==="prod" ? .9 : .45})
+    );
+    edges.position.y = def.h/2;
+    g.add(edges);
+
+    g.position.set(o.x, o.y||0, o.z);
+    g.rotation.y = o.rot || 0;
+    g.userData.uid = o.uid;
+    return g;
+  }
+
+  function rebuildObjects(){
+    while(objGroup.children.length) objGroup.remove(objGroup.children[0]);
+    meshes = {};
+    state.objects.forEach(function(o){
+      var m = makeMesh(o);
+      meshes[o.uid] = m;
+      objGroup.add(m);
+    });
+    restack();
+    refreshSelection();
+    renderBOM();
+    autosave();
+  }
+
+  var uidSeq = 1;
+  function addObject(type, x, z, rot, silent){
+    var o = {uid:"o"+(uidSeq++), type:type, x:x||0, z:z||0, rot:rot||0, y:0};
+    state.objects.push(o);
+    var m = makeMesh(o);
+    meshes[o.uid] = m;
+    objGroup.add(m);
+    if(!silent){ restack(); select(o.uid); renderBOM(); autosave(); }
+    return o;
+  }
+
+  function byUid(uid){
+    for(var i=0;i<state.objects.length;i++) if(state.objects[i].uid===uid) return state.objects[i];
+    return null;
+  }
+
+  // predmeti stojijo na ploščah, če so nad njimi
+  function restack(){
+    var floors = state.objects.filter(function(o){ return BYID[o.type].floor; });
+    state.objects.forEach(function(o){
+      var def = BYID[o.type];
+      if(def.floor){ o.y = 0; }
+      else {
+        var top = 0;
+        floors.forEach(function(f){
+          var fd = BYID[f.type];
+          var hw = (Math.abs(Math.cos(f.rot))*fd.w + Math.abs(Math.sin(f.rot))*fd.d)/2;
+          var hd = (Math.abs(Math.sin(f.rot))*fd.w + Math.abs(Math.cos(f.rot))*fd.d)/2;
+          if(Math.abs(o.x-f.x) <= hw && Math.abs(o.z-f.z) <= hd) top = Math.max(top, fd.h);
+        });
+        o.y = top;
+      }
+      if(meshes[o.uid]) meshes[o.uid].position.y = o.y;
+    });
+  }
+
+  /* ---- izbira ---- */
+  function select(uid){
+    selected = uid;
+    refreshSelection();
+    renderBOM();
+  }
+  function refreshSelection(){
+    if(selBox){ scene.remove(selBox); selBox = null; }
+    var o = selected ? byUid(selected) : null;
+    var has = !!o;
+    ["rot15","rot90","dup","center","del"].forEach(function(id){
+      document.getElementById(id).disabled = !has;
+    });
+    var nameEl = document.getElementById("selName");
+    var specs = document.getElementById("selSpecs");
+    if(!has){
+      selected = null;
+      nameEl.textContent = "Nič ni izbrano";
+      specs.innerHTML = '<p class="empty">Klikni predmet v 3D pogledu ali ga dodaj iz kataloga.</p>';
+      return;
+    }
+    var def = BYID[o.type];
+    nameEl.textContent = def.name;
+    var rows = [
+      ["Mere", def.w + " × " + def.d + " × " + def.h],
+      ["Masa", def.kg ? def.kg + " kg" : "—"],
+      ["Položaj", Math.round(o.x) + " / " + Math.round(o.z)],
+      ["Zasuk", Math.round(o.rot*180/Math.PI) % 360 + "°"],
+      ["Višina tal", o.y ? "+" + o.y + " mm" : "0"]
+    ];
+    if(def.note) rows.push(["Opomba", def.note]);
+    if(def.eur) rows.push(["Cena", def.eur + " €"]);
+    specs.innerHTML = rows.map(function(r){
+      return '<div class="kv"><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>';
+    }).join("");
+
+    selBox = new THREE.BoxHelper(meshes[o.uid], 0xC9970A);
+    selBox.material.depthTest = false;
+    selBox.material.linewidth = 2;
+    scene.add(selBox);
+  }
+
+  /* ---- kamera ---- */
+  var cam = {theta: Math.PI*0.32, phi: 0.80, radius: 17000, target: new THREE.Vector3(0, 600, 700)};
+  function updateCamera(){
+    cam.phi = Math.max(0.12, Math.min(Math.PI/2 - 0.02, cam.phi));
+    cam.radius = Math.max(2500, Math.min(38000, cam.radius));
+    camera.position.set(
+      cam.target.x + cam.radius*Math.sin(cam.phi)*Math.cos(cam.theta),
+      cam.target.y + cam.radius*Math.cos(cam.phi),
+      cam.target.z + cam.radius*Math.sin(cam.phi)*Math.sin(cam.theta)
+    );
+    camera.lookAt(cam.target);
+  }
+
+  function setView(v){
+    if(v==="top"){ cam.theta = -Math.PI/2; cam.phi = 0.13; cam.radius = 11000; cam.target.set(0,0,300); }
+    else if(v==="front"){ cam.theta = Math.PI/2; cam.phi = 1.42; cam.radius = 13500; cam.target.set(0,1100,0); }
+    else { cam.theta = Math.PI*0.32; cam.phi = 0.80; cam.radius = 17000; cam.target.set(0,600,700); }
+    updateCamera();
+  }
+
+  function resize(){
+    var r = cv.parentElement.getBoundingClientRect();
+    var w = Math.max(240, r.width|0), h = Math.max(240, r.height|0);
+    renderer.setSize(w, h, false);
+    camera.aspect = w/h;
+    camera.updateProjectionMatrix();
+  }
+  window.addEventListener("resize", resize);
+
+  /* ---- interakcija ---- */
+  var ray = new THREE.Raycaster();
+  var ndc = new THREE.Vector2();
+  var dragPlane = new THREE.Plane(new THREE.Vector3(0,1,0), 0);
+  var mode = null, last = {x:0,y:0}, dragOff = new THREE.Vector3(), moved = false;
+  var SNAP = 50;
+
+  function pointer(e){
+    var r = cv.getBoundingClientRect();
+    ndc.x = ((e.clientX - r.left)/r.width)*2 - 1;
+    ndc.y = -((e.clientY - r.top)/r.height)*2 + 1;
+  }
+  function pick(){
+    ray.setFromCamera(ndc, camera);
+    var hits = ray.intersectObjects(objGroup.children, true);
+    for(var i=0;i<hits.length;i++){
+      var o = hits[i].object;
+      while(o && !o.userData.uid) o = o.parent;
+      if(o) return {uid:o.userData.uid, point:hits[i].point};
+    }
+    return null;
+  }
+  function groundPoint(y){
+    dragPlane.constant = -(y||0);
+    ray.setFromCamera(ndc, camera);
+    var p = new THREE.Vector3();
+    return ray.ray.intersectPlane(dragPlane, p) ? p : null;
+  }
+
+  cv.addEventListener("pointerdown", function(e){
+    cv.setPointerCapture(e.pointerId);
+    pointer(e);
+    last.x = e.clientX; last.y = e.clientY; moved = false;
+    var hit = (e.button === 0 && !e.shiftKey) ? pick() : null;
+    if(hit){
+      select(hit.uid);
+      var o = byUid(hit.uid);
+      var gp = groundPoint(o.y);
+      dragOff.set(gp ? o.x - gp.x : 0, 0, gp ? o.z - gp.z : 0);
+      mode = "move";
+      pushUndo();
+    } else {
+      mode = (e.button === 2 || e.shiftKey || e.button === 1) ? "pan" : "orbit";
+    }
+    cv.classList.add("dragging");
+  });
+
+  cv.addEventListener("pointermove", function(e){
+    if(!mode) return;
+    var dx = e.clientX - last.x, dy = e.clientY - last.y;
+    if(Math.abs(dx) + Math.abs(dy) > 2) moved = true;
+    last.x = e.clientX; last.y = e.clientY;
+    pointer(e);
+
+    if(mode === "orbit"){
+      cam.theta += dx * 0.006;
+      cam.phi   -= dy * 0.006;
+      updateCamera();
+    } else if(mode === "pan"){
+      var f = cam.radius/1200;
+      var s = Math.sin(cam.theta), c = Math.cos(cam.theta);
+      var right = new THREE.Vector3(-s, 0, c);
+      var fwd   = new THREE.Vector3(-c, 0, -s);
+      cam.target.addScaledVector(right, -dx*f);
+      cam.target.addScaledVector(fwd,   -dy*f);
+      updateCamera();
+    } else if(mode === "move" && selected){
+      var o = byUid(selected);
+      var gp = groundPoint(o.y);
+      if(gp){
+        o.x = Math.round((gp.x + dragOff.x)/SNAP)*SNAP;
+        o.z = Math.round((gp.z + dragOff.z)/SNAP)*SNAP;
+        meshes[o.uid].position.x = o.x;
+        meshes[o.uid].position.z = o.z;
+        restack();
+        if(selBox) selBox.update();
+        updateSelPos(o);
+      }
+    }
+  });
+
+  function endDrag(e){
+    if(mode === "move"){ renderBOM(); autosave(); }
+    if(mode === "orbit" && !moved){ select(null); }
+    mode = null;
+    cv.classList.remove("dragging");
+    if(e && e.pointerId!=null && cv.hasPointerCapture && cv.hasPointerCapture(e.pointerId)) cv.releasePointerCapture(e.pointerId);
+  }
+  cv.addEventListener("pointerup", endDrag);
+  cv.addEventListener("pointercancel", endDrag);
+  cv.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+  cv.addEventListener("wheel", function(e){
+    e.preventDefault();
+    cam.radius *= (e.deltaY > 0 ? 1.1 : 0.9);
+    updateCamera();
+  }, {passive:false});
+
+  function updateSelPos(o){
+    var dd = document.querySelectorAll("#selSpecs .kv dd");
+    if(dd.length >= 3) dd[2].textContent = Math.round(o.x) + " / " + Math.round(o.z);
+    if(dd.length >= 5) dd[4].textContent = o.y ? "+" + o.y + " mm" : "0";
+  }
+
+  /* ---- tipkovnica ---- */
+  document.addEventListener("keydown", function(e){
+    var t = e.target.tagName;
+    if(t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z"){ e.preventDefault(); undo(); return; }
+    if(!selected){
+      if(e.key === "Escape") select(null);
+      return;
+    }
+    var o = byUid(selected);
+    var k = e.key.toLowerCase();
+    if(k === "r"){ pushUndo(); rotate(e.shiftKey ? 90 : 15); e.preventDefault(); }
+    else if(e.key === "Delete" || e.key === "Backspace"){ pushUndo(); removeSel(); e.preventDefault(); }
+    else if(k === "d"){ pushUndo(); duplicate(); e.preventDefault(); }
+    else if(e.key === "Escape"){ select(null); }
+    else if(e.key.indexOf("Arrow") === 0){
+      pushUndo();
+      var s = e.shiftKey ? 10 : 100;
+      if(e.key === "ArrowLeft") o.x -= s;
+      if(e.key === "ArrowRight") o.x += s;
+      if(e.key === "ArrowUp") o.z -= s;
+      if(e.key === "ArrowDown") o.z += s;
+      meshes[o.uid].position.set(o.x, o.y, o.z);
+      restack(); if(selBox) selBox.update(); updateSelPos(o); autosave();
+      e.preventDefault();
+    }
+  });
+
+  function rotate(deg){
+    var o = byUid(selected); if(!o) return;
+    o.rot += deg*Math.PI/180;
+    meshes[o.uid].rotation.y = o.rot;
+    restack(); if(selBox) selBox.update(); refreshSelection(); autosave();
+  }
+  function removeSel(){
+    var o = byUid(selected); if(!o) return;
+    objGroup.remove(meshes[o.uid]);
+    delete meshes[o.uid];
+    state.objects = state.objects.filter(function(x){ return x.uid !== o.uid; });
+    select(null); restack(); renderBOM(); autosave();
+  }
+  function duplicate(){
+    var o = byUid(selected); if(!o) return;
+    var def = BYID[o.type];
+    addObject(o.type, o.x + def.w*Math.cos(o.rot) + 200, o.z + def.w*Math.sin(o.rot), o.rot);
+  }
+
+  /* ---- undo ---- */
+  function snapshot(){ return JSON.stringify({o:state.objects, t:state.tent}); }
+  function pushUndo(){
+    undoStack.push(snapshot());
+    if(undoStack.length > 40) undoStack.shift();
+  }
+  function undo(){
+    if(!undoStack.length) return;
+    var s = JSON.parse(undoStack.pop());
+    state.objects = s.o;
+    state.tent = s.t;
+    buildTent();
+    rebuildObjects();
+    select(null);
+  }
+
+  /* ---- kosovnica ---- */
+  function renderBOM(){
+    var counts = {}, order = [];
+    state.objects.forEach(function(o){
+      if(!counts[o.type]){ counts[o.type] = 0; order.push(o.type); }
+      counts[o.type]++;
+    });
+    var tbody = document.getElementById("bom");
+    if(!order.length){
+      tbody.innerHTML = '<tr><td class="empty">Stojnica je prazna.</td></tr>';
+    } else {
+      tbody.innerHTML = order.map(function(t){
+        var d = BYID[t], n = counts[t];
+        var selRow = selected && byUid(selected) && byUid(selected).type === t ? ' class="sel"' : "";
+        return '<tr'+selRow+' data-type="'+t+'"><td>'+d.name+'</td><td class="n">'+n+'×</td><td class="n">'+
+               (d.kg ? (d.kg*n)+" kg" : "—")+'</td></tr>';
+      }).join("");
+    }
+    var mass = 0, cost = 0, area = 0, inside = 0;
+    state.objects.forEach(function(o){
+      var d = BYID[o.type];
+      mass += d.kg || 0;
+      cost += d.eur || 0;
+      if(d.floor){
+        var a = (d.w*d.d)/1e6;
+        area += a;
+        if(state.tent.w && Math.abs(o.x) < state.tent.w/2 && Math.abs(o.z) < state.tent.d/2) inside += a;
+      }
+    });
+    var foot = (state.tent.w * state.tent.d)/1e6;
+    var cover = foot ? Math.min(100, Math.round(inside/foot*100)) : 0;
+    document.getElementById("tCount").textContent = state.objects.length;
+    document.getElementById("tMass").textContent = mass >= 1000 ? (mass/1000).toFixed(1)+" t" : mass+" kg";
+    document.getElementById("tCost").textContent = cost.toLocaleString("sl-SI")+" €";
+    document.getElementById("tCover").textContent = foot ? cover+" % · skupaj "+area.toFixed(1)+" m²" : area.toFixed(1)+" m²";
+    document.getElementById("coverBar").style.width = cover+"%";
+  }
+  document.getElementById("bom").addEventListener("click", function(e){
+    var tr = e.target.closest("tr");
+    if(!tr || !tr.dataset.type) return;
+    for(var i=0;i<state.objects.length;i++){
+      if(state.objects[i].type === tr.dataset.type){ select(state.objects[i].uid); break; }
+    }
+  });
+
+  /* ---- katalog UI ---- */
+  var catEl = document.getElementById("catalog");
+  catEl.innerHTML = CAT.map(function(g){
+    return '<div class="group"><h3>'+g.group+'</h3>' + g.items.map(function(it){
+      var sub = it.w+" × "+it.d+" × "+it.h + (it.note ? " · "+it.note : "");
+      return '<button class="chip '+g.kind+'" data-add="'+it.id+'"><b>'+it.name+'</b><span>'+sub+'</span></button>';
+    }).join("") + '</div>';
+  }).join("");
+  catEl.addEventListener("click", function(e){
+    var b = e.target.closest("[data-add]");
+    if(!b) return;
+    pushUndo();
+    var def = BYID[b.dataset.add];
+    var z = def.kind === "demo" && !def.floor ? state.tent.d/2 + 2000 : 0;
+    addObject(def.id, 0, z, 0);
+  });
+
+  /* ---- hitra dejanja ---- */
+  document.getElementById("fill").addEventListener("click", function(){
+    var type = document.getElementById("fillType").value;
+    var d = BYID[type];
+    var W = state.tent.w || 6000, D = state.tent.d || 3000;
+    pushUndo();
+    // odstrani obstoječe plošče
+    state.objects = state.objects.filter(function(o){ return !BYID[o.type].floor; });
+    var nx = Math.max(1, Math.floor(W / d.w)), nz = Math.max(1, Math.floor(D / d.d));
+    var rot = 0;
+    // če je obračanje za 90° bolj izkoriščeno, obrni plošče
+    var altX = Math.floor(W / d.d), altZ = Math.floor(D / d.w);
+    if(altX*altZ > nx*nz){ nx = Math.max(1,altX); nz = Math.max(1,altZ); rot = Math.PI/2; }
+    var pw = rot ? d.d : d.w, pd = rot ? d.w : d.d;
+    var x0 = -W/2 + pw/2, z0 = D/2 - pd/2;
+    for(var i=0;i<nx;i++) for(var j=0;j<nz;j++){
+      addObject(type, x0 + i*pw, z0 - j*pd, rot, true);
+    }
+    rebuildObjects();
+    select(null);
+  });
+
+  document.getElementById("demoPath").addEventListener("click", function(){
+    pushUndo();
+    var d = BYID.l;
+    var z = state.tent.d/2 + 300 + d.w/2;      // plošča zasukana: globina poti = 2410
+    for(var i=0;i<3;i++) addObject("l", -d.d + i*d.d, z, Math.PI/2, true);
+    addObject("vilicar", 0, z + d.w/2 + 1400, 0, true);
+    rebuildObjects();
+  });
+
+  document.getElementById("preset").addEventListener("click", function(){
+    pushUndo();
+    loadLayout(PRESET(), true);
+  });
+
+  document.getElementById("clearAll").addEventListener("click", function(){
+    if(!state.objects.length) return;
+    pushUndo();
+    state.objects = [];
+    rebuildObjects();
+    select(null);
+  });
+
+  document.getElementById("rot15").addEventListener("click", function(){ pushUndo(); rotate(15); });
+  document.getElementById("rot90").addEventListener("click", function(){ pushUndo(); rotate(90); });
+  document.getElementById("dup").addEventListener("click", function(){ pushUndo(); duplicate(); });
+  document.getElementById("del").addEventListener("click", function(){ pushUndo(); removeSel(); });
+  document.getElementById("center").addEventListener("click", function(){
+    var o = byUid(selected); if(!o) return;
+    pushUndo();
+    o.x = 0; o.z = 0;
+    meshes[o.uid].position.set(0, o.y, 0);
+    restack(); if(selBox) selBox.update(); refreshSelection(); autosave();
+  });
+
+  /* ---- šotor / stene / streha / pogled ---- */
+  document.getElementById("tentSize").addEventListener("change", function(e){
+    var p = e.target.value.split("x");
+    pushUndo();
+    state.tent = {w:+p[0], d:+p[1]};
+    buildTent(); renderBOM(); autosave();
+  });
+  document.getElementById("walls").addEventListener("click", function(e){
+    var b = e.target.closest("[data-wall]"); if(!b) return;
+    var k = b.dataset.wall;
+    state.walls[k] = !state.walls[k];
+    b.setAttribute("aria-pressed", state.walls[k] ? "true" : "false");
+    buildTent(); autosave();
+  });
+  document.getElementById("roofMode").addEventListener("change", function(e){
+    state.roof = e.target.value;
+    buildTent(); autosave();
+  });
+  document.getElementById("views").addEventListener("click", function(e){
+    var b = e.target.closest("[data-view]"); if(!b) return;
+    [].forEach.call(this.querySelectorAll("button"), function(x){ x.setAttribute("aria-pressed", x===b ? "true":"false"); });
+    setView(b.dataset.view);
+  });
+
+  /* ---- predlagana postavitev ---- */
+  function PRESET(){
+    var W = 6000, D = 3000, l = BYID.l;
+    var objs = [];
+    var uid = 1;
+    function push(type, x, z, rot){ objs.push({uid:"p"+(uid++), type:type, x:x, z:z, rot:rot||0, y:0}); }
+    // tla: 5 plošč L po širini
+    for(var i=0;i<5;i++) push("l", -W/2 + l.d/2 + i*l.d, D/2 - l.w/2, Math.PI/2);
+    push("back6", 0, -D/2 + 120, 0);
+    push("tv", -1100, -D/2 + 500, 0);
+    push("pult", 2000, 600, 0);
+    push("vitrina", -2600, -300, Math.PI/2);
+    push("mizaV", -700, 200, 0);
+    push("stolB", -1400, 300, 0);
+    push("stolB", 0, 300, 0);
+    push("skrinja", -2100, 1000, 0);
+    push("luc", -2000, -1300, 0);
+    push("luc", 2000, -1300, 0);
+    push("rastlina", 2700, -1100, 0);
+    push("kos", 2750, 1200, 0);
+    push("gasilnik", -2800, -1300, 0);
+    push("zaboj", 2400, -1200, 0);
+    push("oseba", 900, 700, 0);
+    // zunaj
+    for(var j=0;j<3;j++) push("l", -l.d + j*l.d, D/2 + 300 + l.w/2, Math.PI/2);
+    push("vilicar", 1200, D/2 + 300 + l.w/2, 0);
+    push("flag", -3400, D/2 + 600, 0);
+    push("flag", 3400, D/2 + 600, 0);
+    push("kava", 3700, 600, Math.PI/2);
+    return {tent:{w:W,d:D}, walls:{back:true,left:true,right:false,front:false}, roof:state.roof, objects:objs};
+  }
+
+  /* ---- shranjevanje ---- */
+  var LS = "isotrack.planer.v1";
+  var db = null;
+  var saveTimer = null;
+
+  function autosave(){
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){
+      try{ localStorage.setItem(LS, JSON.stringify(currentLayout())); }catch(err){}
+    }, 400);
+  }
+  function currentLayout(){
+    return {tent:state.tent, walls:state.walls, roof:state.roof, objects:state.objects};
+  }
+  function loadLayout(L, keepUndo){
+    if(!L) return;
+    if(L.tent) state.tent = L.tent;
+    if(L.walls) state.walls = L.walls;
+    if(L.roof) state.roof = L.roof;
+    state.objects = (L.objects||[]).filter(function(o){ return BYID[o.type]; }).map(function(o){
+      return {uid:"o"+(uidSeq++), type:o.type, x:+o.x||0, z:+o.z||0, rot:+o.rot||0, y:0};
+    });
+    document.getElementById("tentSize").value = state.tent.w + "x" + state.tent.d;
+    document.getElementById("roofMode").value = state.roof;
+    [].forEach.call(document.querySelectorAll("#walls [data-wall]"), function(b){
+      b.setAttribute("aria-pressed", state.walls[b.dataset.wall] ? "true" : "false");
+    });
+    buildTent();
+    rebuildObjects();
+    select(null);
+    if(!keepUndo) undoStack = [];
+  }
+
+  function renderSaves(list){
+    var el = document.getElementById("saves");
+    if(!list || !list.length){
+      el.innerHTML = '<p class="empty" style="font-size:12.5px">Ni shranjenih postavitev.</p>';
+      return;
+    }
+    el.innerHTML = "";
+    list.forEach(function(s){
+      var row = document.createElement("div");
+      row.className = "save";
+      var open = document.createElement("button");
+      open.textContent = s.name + "  ·  " + (s.objects ? s.objects.length : 0);
+      open.addEventListener("click", function(){ pushUndo(); loadLayout(s, true); });
+      var x = document.createElement("button");
+      x.className = "x"; x.title = "Izbriši"; x.textContent = "×";
+      x.addEventListener("click", function(){ deleteSave(s.id); });
+      row.appendChild(open); row.appendChild(x);
+      el.appendChild(row);
+    });
+  }
+
+  var localSaves = [];
+  function loadLocalSaves(){
+    try{ localSaves = JSON.parse(localStorage.getItem(LS+".saves")||"[]"); }catch(err){ localSaves = []; }
+    renderSaves(localSaves);
+  }
+  function persistLocalSaves(){
+    try{ localStorage.setItem(LS+".saves", JSON.stringify(localSaves)); }catch(err){}
+  }
+
+  document.getElementById("save").addEventListener("click", function(){
+    var name = prompt("Ime postavitve:", "Postavitev " + new Date().toLocaleDateString("sl-SI"));
+    if(!name) return;
+    var rec = currentLayout();
+    rec.name = name;
+    rec.id = "l" + Date.now();
+    if(db){
+      db.doc("layouts/"+rec.id).set(rec).catch(function(){});
+    } else {
+      localSaves.unshift(rec);
+      persistLocalSaves();
+      renderSaves(localSaves);
+    }
+  });
+  function deleteSave(id){
+    if(db){ db.doc("layouts/"+id).delete().catch(function(){}); }
+    else {
+      localSaves = localSaves.filter(function(s){ return s.id !== id; });
+      persistLocalSaves(); renderSaves(localSaves);
+    }
+  }
+
+  /* ---- zagon ---- */
+  buildTent();
+  var saved = null;
+  try{ saved = JSON.parse(localStorage.getItem(LS)||"null"); }catch(err){}
+  if(saved && saved.objects && saved.objects.length) loadLayout(saved);
+  else loadLayout(PRESET());
+  loadLocalSaves();
+
+  resize();
+  setView("iso");
+  document.getElementById("loading").style.display = "none";
+
+  (function loop(){
+    requestAnimationFrame(loop);
+    renderer.render(scene, camera);
+  })();
+
+  // deljene postavitve, če jih okolje omogoča
+  if(window.claude && typeof window.claude.use === "function"){
+    window.claude.use("db").then(function(x){
+      if(!x) return;
+      db = x;
+      document.getElementById("storeStatus").textContent = "Shranjene postavitve vidijo vsi s povezavo.";
+      db.collection("layouts").onSnapshot(function(snap){
+        var list = (snap && snap.docs ? snap.docs : []).map(function(d){ return d.data(); }).filter(Boolean);
+        list.sort(function(a,b){ return String(b.id||"").localeCompare(String(a.id||"")); });
+        renderSaves(list);
+      }, function(){
+        db = null;
+        document.getElementById("storeStatus").textContent = "Samodejno shranjevanje v ta brskalnik.";
+        renderSaves(localSaves);
+      });
+    }).catch(function(){});
+  }
+})();
+</script>
