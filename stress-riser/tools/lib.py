@@ -127,3 +127,25 @@ def svg(body, bg=None):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
             f'<defs><style>@font-face{{font-family:LilitaOne;src:url(data:font/ttf;base64,{FONT_B64}) format("truetype");}}</style></defs>'
             + (rect(0, 0, W, H, bg, 0, 0) if bg else "") + body + "</svg>")
+
+
+# ---------------------------------------------------------------- margin-safe title helper
+from PIL import ImageFont as _IF
+_FONT = _IF.truetype(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "LilitaOne-Regular.ttf"), 100)
+
+
+def text_width(s, cap):
+    return _FONT.getlength(s) * (cap / 0.70) / 100
+
+
+def title(lines, cap=92, x=None, y=None, fill=WHITE, right=None):
+    """Place words inside the safe margins: 64 px sides, 36 px top (outline included)."""
+    if isinstance(lines, str):
+        lines = [lines]
+    o = 0.12 * cap
+    x = 64 + o if x is None else x
+    y = 36 + cap + o if y is None else y
+    wmax = max(text_width(t, cap) for t in lines)
+    limit = (1280 - 64 - o) if right is None else right
+    assert x + wmax <= limit, (lines, x + wmax, limit)
+    return text(lines, x, y, cap, fill=fill)
