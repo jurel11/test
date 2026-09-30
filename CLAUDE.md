@@ -6,4 +6,6 @@ Talk to the user in the language they write in (so far Slovenian). Everything th
 
 @stress-riser/channel-brief.md
 
+For thumbnails (styles, text overlay rules, testing, image-generation prompts, evidence) read `stress-riser/thumbnail-styles.md` first; mockups are in `stress-riser/thumbnails/` and viewable in `stress-riser/thumbnail-lookbook.html`. Research notes with sources are in `stress-riser/research/`.
+
 The `isotrack-*.html` files in this repository are unrelated to the channel; the brief does not apply to them.
