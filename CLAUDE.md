@@ -10,4 +10,6 @@ For thumbnails (styles, text overlay rules, testing, image-generation prompts, e
 
 The whole thumbnail research (all findings, numbers, recommendations, the ten styles, every agent report and review, data tables and sources) is gathered in `stress-riser/STRESS-RISER-MASTER.html`. It is large (about 3 MB with embedded images): do not read it into context; its text sources are in `stress-riser/master/`, `stress-riser/research/` and `stress-riser/thumbnail-styles.md`, and `stress-riser/tools/build_master.py` rebuilds it.
 
+For an AI to read, use the plain-Markdown edition `stress-riser/STRESS-RISER-AI.md` (about 50,000 words, no images, layered from the most to the least important, with a map with line numbers at the top): read the sections you need, not necessarily the whole file. `stress-riser/tools/build_ai.py` rebuilds it.
+
 The `isotrack-*.html` files in this repository are unrelated to the channel; the brief does not apply to them.

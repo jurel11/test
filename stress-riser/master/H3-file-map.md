@@ -5,6 +5,7 @@ Everything is in the repository `jurel11/test` on the branch `claude/stress-rise
 | Path | What it is |
 |---|---|
 | `STRESS-RISER-MASTER.html` | This file: the whole dossier in one self-contained page |
+| `STRESS-RISER-AI.md` | The same research as one plain-Markdown file for an AI to read: no images, layered from the most to the least important, with a map and line numbers at the top (reports, raw notes and indexes are left out) |
 | `channel-brief.md` | The channel brief, verbatim (also loaded automatically through `CLAUDE.md`) |
 | `thumbnail-styles.md` | The corrected report of the ten styles (Part C of this file) |
 | `thumbnail-lookbook.html` | The visual gallery of the ten mockups, in Slovenian captions |
@@ -18,6 +19,7 @@ Everything is in the repository `jurel11/test` on the branch `claude/stress-rise
 | `tools/thumb_preview.py` | The feed preview rig: light and dark feed, several sizes, badge, grayscale, blur, safe zones |
 | `tools/scenes.py`, `lib.py`, `render.py`, `fonts/` | The mockup generator (needs a headless Chromium) |
 | `tools/build_master.py` | The script that assembles this file from the sources above |
+| `tools/build_ai.py` | The script that assembles `STRESS-RISER-AI.md` (Python 3 only; its own front matter is in `master/ai/`) |
 
 **Preview tool usage:** `python3 tools/thumb_preview.py image.png --title "…" --duration 10:24 --safezone` (needs Pillow).
 
