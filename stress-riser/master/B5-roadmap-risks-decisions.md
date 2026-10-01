@@ -6,7 +6,7 @@
 
 1. Answer the four decisions in B5.3.
 2. Make the **character sheet**: front view, three expressions (worried, calm, one more), one prop; the dot-eye face with a gaze shift toward the hazard; a very large head version for Style 10.
-3. Build the **thumbnail template** in Figma, Canva or Photopea: a 1920×1080 (or 3840×2160) master; guides for the 64 px and 36 px margins and the two keep-out boxes; the Lilita One text style with the ink outline preset; a paper-card variant with the ink frame (Style 4).
+3. Build the **thumbnail template** in Figma, Canva or Photopea: a 1920×1080 (or 3840×2160) master; guides for the margins and the two keep-out boxes (the values in B4.3 are for 1280×720: margins 64 and 36 px, boxes 230×90 and 110×110 px; on 1920×1080 use 96 and 54 px, 345×135 and 165×165 px; on 3840×2160 multiply the 1280×720 values by 3); the Lilita One text style with the ink outline preset; a paper-card variant with the ink frame (Style 4).
 4. In Studio, check **Test & Compare** is available (advanced features on) and whether **custom Shorts covers** are available to the channel.
 5. Choose the first two stories from the registry (C8): re-verify every fact against the primary report named there, and recompute the "two years old" cutoff on the day.
 6. Draft three radically different thumbnail concepts **before** scripting each video.
@@ -15,27 +15,27 @@
 
 1. *Idea gate:* one line for the outcome plus the human stakes number; draft three question titles of about 60 characters or fewer, with the hook in the first 40.
 2. *Concepts:* sketch three radically different thumbnails, each a different pattern; for each, the tease in 0–4 words.
-3. *Pair check:* five questions (does it add a fact? does it repeat the first 40 characters? is it visible by second 15? does a stranger get the topic on a phone? drop the pair if any fails).
+3. *Pair check:* four questions (does the thumbnail add a fact the title lacks? does it repeat the title's first 40 characters? does the video show it by second 15? would a stranger get the topic on a phone?); drop the pair if any check fails.
 4. *Script hook:* write the opening to pay off the chosen pair.
 5. *Publish* with Test & Compare on three variants, preferred first.
 6. *Decide* by the rules in B4.6.
 7. *Log* every video (template in B5.2).
 8. *Shorts:* frame 0 to 1 s is the outcome image plus a 3–6 word line; the same frame can be the custom cover.
 
-**First 10 videos: a suggested rotation.** Each test has one human, one mechanism and one scale-or-scene variant, never close cousins together; adapt to what fits each story (swap Style 6 in for a mechanism slot when the story has a surprising number).
+**First 10 videos: a suggested rotation.** Each test has one human, one mechanism and one scale-or-scene variant, never close cousins together (slots as defined in B4.2; the cousins are 1 and 8, 4 and 5, and 2, 8 and 9); adapt to what fits each story (swap Style 6 in for a mechanism slot when the story has a surprising number).
 
 | Video | Human variant | Mechanism variant | Scale or scene variant |
 |---|---|---|---|
 | 1 | 10 Close-Up Gaze | 4 Exhibit A | 1 Tiny Under the Giant |
 | 2 | 7 Odd True Detail | 5 Cutaway | 2 Moment Before |
 | 3 | 10 Close-Up Gaze | 5 Cutaway | 3 Impossible Scene |
-| 4 | 9 Seat of the Decider | 4 Exhibit A | 2 Moment Before |
+| 4 | 9 Seat of the Decider | 4 Exhibit A | 1 Tiny Under the Giant |
 | 5 | 7 Odd True Detail | 4 Exhibit A | 1 Tiny Under the Giant |
 | 6 | 10 Close-Up Gaze | 5 Cutaway | 8 Crowd on the Shore |
 | 7 | 9 Seat of the Decider | 4 Exhibit A | 3 Impossible Scene |
-| 8 | 7 Odd True Detail | 5 Cutaway | 1 Tiny Under the Giant |
+| 8 | 7 Odd True Detail | 5 Cutaway | 8 Crowd on the Shore |
 | 9 | 10 Close-Up Gaze | 4 Exhibit A | 2 Moment Before |
-| 10 | 9 Seat of the Decider | 5 Cutaway | 8 Crowd on the Shore |
+| 10 | 9 Seat of the Decider | 5 Cutaway | 3 Impossible Scene |
 
 **After 8–10 videos (P3).** Tabulate per style: tests run, Winner, Performed Same, Inconclusive, CTR by traffic source, average view duration, and the watch-time-share direction. Look for patterns across videos, not in single tests. Narrow to three or four house styles; keep one exploratory variant per video; retire a style that never wins; revisit the style × story matrix with real results.
 
@@ -81,9 +81,9 @@ Secondary decisions: whether the examples built on lower-confidence sources (Que
 | YouTube's mobile Home size experiment may crop thumbnails | Words or faces near edges could be cut | Keep everything important central |
 | "Loud: ALL CAPS" guidance | A few caps words are standard in the niche, but YouTube lists loud thumbnails as something to avoid | Few words, no exclamation marks; test sentence case |
 | The "two years old" filter moves with the date | Candidate stories change | Recompute at each publication |
-| Contested stories (Flixborough, Tacoma, Challenger) | A thumbnail that asserts one cause could be wrong | Mark the cause as contested; the picture marks the modification or object, not a proven cause |
+| Contested stories (Flixborough, Tacoma) | A thumbnail that asserts one cause could be wrong | Mark the cause as contested; the picture marks the modification or object, not a proven cause. For Challenger, avoid a "cover-up" framing in the title |
 | Lower-confidence sources (Quebec, Vasa, Piper Alpha, Note 7) | "Nothing invented" is the channel's rule | Verify against primary reports before publication |
-| Policy drift (AI labels, originality) | Rules changed in 2026 several times | Re-read the policy pages each quarter |
+| Policy drift (AI labels, Shorts covers, Test & Compare features) | The AI-label rules were updated on 27 May 2026 (TechCrunch), custom Shorts covers began rolling out in July 2026 (YouTube blog, 2026-07-24) and new testing features were announced on 2026-09-23 | Re-read the policy and Help pages each quarter |
 | Whether C2PA metadata in a generated thumbnail triggers an AI label | Possible unwanted label | Strip or check metadata; keep the art clearly non-realistic |
 
 ### B5.5 What the research did not cover (candidate future research)

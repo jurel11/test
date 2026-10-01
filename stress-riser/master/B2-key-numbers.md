@@ -1,6 +1,6 @@
 ## B2. Key numbers and facts, in one place
 
-Every row says what was measured, the grade, and where to read more (a chapter in Part D or an appendix). Nothing here is new beyond the reports; it is a consolidated ledger. Where reports disagree, see B3.
+Most rows say what was measured, the grade and where to read more (a chapter in Part D or an appendix). The tables in B2.4, B2.5 and B2.7 have no grade column: their rows are counts, measurements and arithmetic by our own agents ([B]) unless a grade is shown inline, and the lower-confidence stories carry [C]. Nothing here is new beyond the reports; it is a consolidated ledger. Where reports disagree, see B3.
 
 ### B2.1 Platform: specs, display, measurement, testing, policy
 
@@ -20,11 +20,11 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 | Duration badge | bottom-right; red progress bar along the bottom for watched videos; desktop hover icons top-right | [B] YouTube via SEJ; geometry unverified | D1 |
 | Impression counted when | thumbnail on screen more than 1 second with at least 50% visible; counted on apps, TV, Search, Home, feeds, Up Next, playlists | [A] Help | D1 |
 | Impression not counted on | mobile website, YouTube Kids, YouTube Music, external embeds, cards, end screens, email, notifications | [A] Help | D1 |
-| Mobile Home experiment | YouTube varies thumbnail and video sizes; "some thumbnails may appear cropped" | [A] Team YouTube 2026-04-29 (page script-rendered) | D1 |
+| Mobile Home experiment | YouTube varies thumbnail and video sizes; "some thumbnails may appear cropped" | [A] Team YouTube 2026-04-29 (the page is script-rendered; the reviewer could not re-open it, so the wording rests on the agent's reading) | D1 |
 | CTR definition | "how often viewers watched a video after seeing a thumbnail"; tells "how eye-catching your video idea or 'packaging' is" | [A] Help 7628154, 16767369 | D1 |
 | CTR benchmark | "Half of all channels and videos … between 2% and 10%"; wider for new videos or fewer than 100 views; not a target | [A] Help | D1 |
 | Why CTR varies | falls as reach widens (Help's example: 9% on 10,000 impressions to 3.5% on 100,000); search: fewer impressions, higher CTR; home: high volume, lower CTR; early CTR inflated by loyal fans | [A] Help | D1 |
-| Subscribers' feed CTR | "probably … 10% or less"; "90% of the time your subscribed audience isn't deciding" | [B] Beaupré 2026-09-01 via ppc.land | D1, D8 |
+| Subscribers' feed CTR | "probably … 10% or less"; "90% of the time your subscribed audience isn't deciding" | [B] Beaupré 2026-09-01 via ppc.land (one secondary source; no sample or method given) | D1, D8 |
 | What YouTube optimizes | "long-term viewer satisfaction"; signals: clicks, watch time, survey responses, sharing, likes, dislikes; "No metric on its own is a good indicator of value" | [A] Help 141805, Goodrow 2021; [B] Beaupré | D1 |
 | Clickbait signature | high CTR with low average view duration and lower-than-expected impressions | [A] Help | D1 |
 | Test & Compare | up to 3 variants (titles, thumbnails or both); long-form only; desktop Studio; ends at significance or up to 2 weeks; outcomes Winner, Performed Same, Inconclusive; judged by **watch-time share**, not CTR | [A] Help 16391400 | D1 |
@@ -37,11 +37,11 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 | Penalties | usually a warning first; later a strike (3 in 90 days risks termination); repeat violations can remove custom thumbnails for 30 days | [A] Help | D1 |
 | Animation | YouTube "make[s] a distinction between dramatized violence featuring real human actors and content featuring animations" | [A] Help 2802008 | D1 |
 | Advertiser-friendly rules | apply to thumbnail, title, description, tags; full ads: tragedies with limited display, building collapses, implied death in documentary context; limited ads: disaster footage with visible harm or extreme distress; no ads: gore, heavy blood, severe agony, and content that profits from a sensitive event | [A] Help 6162278 | D1 |
-| Real victims | not allowed: reveling in or mocking an identifiable person's death; avoid company logos | [A] Help 2802268 | D1 |
-| Originality | not monetizable: "AI-generated content made with generic or unoriginal templates"; "repeatedly uses disturbing themes (such as violence or loss) without building a cohesive narrative"; allowed: the same intro and outro with different substance | [A] Help 1311392 | D1 |
+| Real victims | not allowed: content "reveling in or mocking the death or serious injury of an identifiable individual" (the Help text). "Avoid company logos" is D1's inference from trademark enforcement, not Help wording | [A] Help 2802268; [C] the logo point | D1 |
+| Originality | not monetizable: "AI-generated content made with generic or unoriginal templates"; "repeatedly uses disturbing themes (such as violence or loss) without building a cohesive narrative"; the repetitive-content wording is about "giving the impression of mass production without adding the creator's original, authentic insights or perspective" (full wording from reviewer 1's live check); allowed: the same intro and outro with different substance. "A house style is fine" is my reading, not YouTube's words | [A] Help 1311392 | D1 |
 | AI disclosure | not needed for clearly non-realistic or animated content; the rules list AI help with a thumbnail among exempt uses; realistic fake events need it; labels added automatically for YouTube's own AI tools and C2PA metadata | [A] Help 14328491 | D1 |
 | Shorts covers | custom cover on desktop Studio only; verified account (Help) vs Partner Program first (blog 2026-07-24); no A/B testing for Shorts | [A] | D1, D8 |
-| Shorts feed | plays the video, no thumbnail shown; covers appear on channel page, homepage, search | [A/B] | D1, D8 |
+| Shorts feed | plays the video, no thumbnail shown; covers appear on channel page, homepage, search | [B/C]: search is our own JSON check; the homepage and channel-page part is secondary (Ritchie via ppc.land); no official page confirms it (D8) | D1, D8 |
 | Shorts crop | search serves 405×720 (9:16) and 405×608 (2:3) variants; advice: key content inside a central 2:3 crop | [B] measured; [C] Ritchie via ppc.land | D1 |
 
 ### B2.2 CTR evidence: datasets, company data and creator experiments
@@ -66,7 +66,7 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 | Ali Abdaal | a rushed thumbnail replaced after an A/B test showed "much higher" CTR; video reached almost 1M views; no numbers published | [B] secondary | D2 |
 | OverseerOS | 16,152 million-view videos: 25% no thumbnail text; about 75% of text-bearing ones do not mostly repeat the title; 891 matched question vs statement pairs: 445 vs 446; only 6.8% of million-view titles contain "?" | [C] vendor, survivors only | D2 |
 | No published numbers for | Mark Rober, D'Avella, Kurzgesagt, Wendover, Real Engineering, Practical Engineering, Polymatter, Johnny Harris, Vox | not found | D2 |
-| Existence proofs for cartoon thumbnails | Ink Explainer: faceless stick-figure channel, 77.8K subscribers at month 8 (third-party case study), one video 9.7M views; The Infographics Show "AMERICA CLOSED" 2.5M in 2 weeks; Kurzgesagt 10–20M on latest uploads | [C] | D2 |
+| Existence proofs for cartoon thumbnails | Ink Explainer: faceless stick-figure channel, 106K subscribers on its channel page (2026-09-30; a third-party case study says 77.8K "at month 8", which does not fit "first video about 5 months ago": see B3.2 #22), one video 9.7M views; The Infographics Show "AMERICA CLOSED" 2.5M in 2 weeks; Kurzgesagt 10–20M on latest uploads | [C] | D2 |
 
 ### B2.3 Psychology and perception: findings and principles
 
@@ -121,9 +121,9 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 | Faces | rare: only The Hydraulic Record (25K subscribers; 2M and 1M views on two recent videos) puts a worried presenter looking toward the hazard on every thumbnail viewed |
 | The "moment before" | almost never shown; closest: Storified "26 PEOPLE" (613K) and The Infographics Show "Small Decisions That Caused HUGE Impacts" (957,455 views, 957K; search page) |
 | Ink Explainer in this niche | 106K subscribers; "What Did Ancient Humans Actually Do All Day?" 9.7M views, a roughly 28× outlier against a median of about 340K for its top 14; style proven for prehistory, not yet for disasters |
-| Tragedy handling | most show the structure or vehicle and no bodies; some state a casualty count as the hook; Storified is sensational ("IMPALED", "BRUTAL DEATH") yet has the biggest numbers on its channel (14M, 5.7M, 2.7M): sensationalism gets views but conflicts with the brief |
+| Tragedy handling | most show the structure or vehicle and no bodies; some state a casualty count as the hook; Storified is sensational ("IMPALED", "BRUTAL DEATH") yet has the biggest numbers on its channel (14M, 5.7M, 2.7M): sensationalism can get views (a correlation) but conflicts with the brief |
 
-**The 13 formulas found in the niche** (full table with examples in D4): 1) two to four blunt heavy words over a full-bleed scene; 2) a worried face looking toward the hazard; 3) a giant one-word title over one lone object on plain sky or sea; 4) sepia or monochrome archive photo with gothic headline (photo-only); 5) red circle, arrow or dashed line (overused; banned by the brief); 6) cutaway or cross-section (translates well); 7) a tiny person for scale against something huge, or the moment just before; 8) a number as the hook; 9) gory dramatization with red arrows (avoid); 10) vehicle cut-out on a blue gradient with fire clip-art; 11) one object on plain light background with an accusatory caption; 12) an emotive cartoon character in a full scene with 2–3 words (native to your style); 13) "small thing, big outcome" split.
+**The 13 formulas found in the niche** (full table with examples in D4): 1) two to four blunt heavy words over a full-bleed scene; 2) a worried face looking toward the hazard; 3) a giant one-word title over one lone object on plain sky or sea; 4) sepia or monochrome archive photo with gothic headline (photo-only); 5) red circle, arrow or dashed line (overused; the brief bans arrows and dashed lines); 6) cutaway or cross-section (translates well); 7) a tiny person for scale against something huge, or the moment just before; 8) a number as the hook; 9) gory dramatization with red arrows (avoid); 10) vehicle cut-out on a blue gradient with fire clip-art; 11) one object on plain light background with an accusatory caption; 12) an emotive cartoon character in a full scene with 2–3 words (native to your style); 13) "small thing, big outcome" split.
 
 **Overused in the niche:** red circle and arrow, fire and explosion clip-art, all-caps condensed text, monochrome archival photos, brand corner logos, the intact-structure-on-water shot.
 
@@ -138,7 +138,7 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 | Phone test at 176 px | pale or white-background thumbnails lose their edge on the white feed; saturated full scenes keep a clear boundary in both modes; 1–3 words at about 30% of frame height stay legible; small labels and two-line text do not; figures under about 12% of frame height read only by posture |
 | Lab study | cartoon faces get faster, larger early neural responses; real faces get more late attention (Zhao 2019, N=17; neural response, not clicks) [A] |
 | V-shaped brow geometry | detected faster than upward (Larson 2007); only weak behavioural effects (Wang and Zhang 2016) [A] |
-| No source compares stick or cartoon thumbnails with realistic ones on clicks | evidence either way is absent |
+| No YouTube study was found that compares stick-figure or cartoon thumbnails with realistic ones on clicks | indirect evidence only: Zhao 2019 (neural response) and a December 2023 Journal of Advertising study of illustrated vs photographic public-service ads (donation clicks; not YouTube) |
 
 ### B2.5 Design system numbers
 
@@ -148,7 +148,7 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 | Rule of thumb | gap ≥ 50 text-safe (WCAG 4.5:1); 40–50 big bold text; 25–40 big flat shapes with an outline; < 25 invisible (hue only) | D6 |
 | Universal outline | ink is at least 3:1 against every palette color (lowest: ink/dark green 3.59) | D6 |
 | Strong pairs | ink/white 17.4:1; ink/paper 14.6; ink/sky 12.7; ink/amber 8.95; ink/light green 8.1; white/dark green 4.85; white/brown 4.6; white/red 4.2 | F1 |
-| Weak or failing pairs | ink/red 4.1 (outline yes, ink text no); paper/red 3.5; red/sky 3.1 (best red accent background); sky/paper 1.15; white/paper 1.2; white/sky 1.37; tan/amber 1.01; light green/amber 1.11; light green/tan 1.09; dark green/brown 1.05; brown/red 1.09; dark green/red 1.15 | F1 |
+| Weak or failing pairs | ink/red 4.1 (outline yes, ink text no); paper/red 3.5; red/sky 3.1 (best red accent background); sky/paper 1.15; white/paper 1.2; white/sky 1.37; tan/amber 1.01; light green/amber 1.11; light green/tan 1.09; dark green/brown 1.05; brown/red 1.09; dark green/red 1.15 (these are contrast ratios; the complete list of 21 pairs with a lightness gap under 25 is in B4.3) | F1 |
 | Against the white feed page | sky 1.37:1, paper 1.20:1, white 1.00:1: pale thumbnails lose their edge | D6 |
 | Accent saliency (proxy, 168×94, 40 scenes per cell) | red disc was the most salient point in 95% of scenes, amber 69%; amber fails on light green (2%) and brown (8%); amber works on ink; red and amber must never touch | D6 [C] |
 | Color-blindness | red becomes olive (#726835 protan, #968733 deutan), the same as dark green; about 8% of men and 0.5% of women of Northern European descent have red-green deficiency (NEI) | D6 |
@@ -165,7 +165,7 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 
 | Fact | Value | Grade | Where |
 |---|---|---|---|
-| Title and thumbnail as one unit | Galloway: "view the title and thumbnail as one … complement or contradict/repeat"; plan them before recording; pass the "glance test" | [B] | D8 |
+| Title and thumbnail as one unit | Galloway (2024-07-10): "view the title and thumbnail as one, do they compliment each other or contradict/repeat?" (sic); "always plan your title and thumbnail before recording" (2024-05-10); pass the "glance test" | [B] | D8 |
 | Complementarity data | 217 classifiable thumbnails of 1M+ videos: 46.1% fully complementary, 28.6% mixed, 21.2% mostly repeated the title, 4.1% exact match (survivors, no CTR) | [C] vendor | D8 |
 | Counterexample | TED-Ed "How do solar panels work?" (26M) and "Can you solve the prisoner hat riddle?" (37M) repeat the title: search-intent evergreen | [C] | D8 |
 | Pairing patterns for a question title | A answer-tease ("NO JOBS"); B evidence promise ("We tested it"); C outcome plus mystery (holed Arecibo dish); D zero-text anomaly; E contrast triplet ("EASY / EASY / ALMOST IMPOSSIBLE"); avoid the reverse pairing (statement title, question in image) | [C] synthesis | D8 |
@@ -179,15 +179,15 @@ Every row says what was measured, the grade, and where to read more (a chapter i
 
 ### B2.7 The twelve candidate stories (fact base)
 
-All twelve pass the channel's filter as of 2026-09-30 (not ongoing legal cases; nothing after 2024-09-30; no terrorism; no medical advice; politics only as regulatory facts). Full facts, quotes and sources are in D7 and G8. Ranked by thumbnail strength by the story-research agent (its judgment, not a test).
+All twelve pass the age filter as of 2026-09-30 (nothing after 2024-09-30; no terrorism; no medical advice; politics only as regulatory facts). Legal status is **not fully verified** (D7): litigation for Challenger, criminal status for Piper Alpha and the class action for Note 7 are marked UNVERIFIED, and the follow-up settlements for Hyatt and Big Dig and legal follow-ups for the Blackout were not checked. Check each story again before choosing it. Full facts, quotes and sources are in D7 and G8. Ranked by thumbnail strength by the story-research agent (its judgment, not a test).
 
 | Rank | Story | Headline facts | Thumbnail moment | Planted object |
 |---|---|---|---|---|
-| 1 | Comet, 1954 | 35 died 10 Jan (Elba), 21 died 8 Apr (Naples); whole fuselage tested in a water tank; failure after 3,057 cycles (1,221 real plus 1,836 simulated; another source 3,060); about 70% of the Elba wreck recovered | an entire airliner in a purpose-built tank, flown thousands of times faster than real life | a bolt hole |
+| 1 | Comet, 1954 | 35 died 10 Jan (Elba), 21 died 8 Apr (Naples); whole fuselage tested in a water tank; failure after 3,057 cycles (1,221 real plus 1,836 simulated; another source 3,060); about 70% of the Elba wreck recovered | the whole fuselage in a purpose-built tank, wings out through seals, "flown" in about 5 minutes per simulated flight | a bolt hole |
 | 2 | Tacoma Narrows, 1940 | opened 1 July, fell 7 Nov; wind 42 mph measured 09:30; twisting began 10:03; roadway tilted up to 28 ft each side; a 600-ft section fell 11:02; cause "remains a mystery", torsional flutter primary explanation | the tilted roadway; lemon-chewing workmen | a lemon |
 | 3 | Vajont, 1963 | 1,917 dead (Italian Civil Protection; counts 1,919–2,056); about 260 million m³ slide; wave about 250 m over the crest; 262 m dam stood; criminal case closed 1971; final civil settlement 23 June 1999 | dam intact with a wave over it; at noon workers saw the mountain moving; at 13:00 a 50 cm crack | gravel-on-a-plank model |
-| 4 | Vasa, 1628 | sank after about 1,300 m; about 30 died; a stability test with 30 men stopped after three trips; four rulers found (two Swedish feet, two Amsterdam feet); raised 1961 | huge ship heeling with open gunports, a crowd on the shore | a wooden ruler |
-| 5 | Challenger, 1986 | 11:38 liftoff, breakup at 73 s; air temperature 36°F, 15°F colder than any earlier launch; Thiokol advised against launching below 53°F; foot-long icicles; Feynman's ice-water demonstration 11 Feb 1986 | a glass of ice water and a clamped rubber ring | the O-ring |
+| 4 | Vasa, 1628 | sank after about 1,300 m; about 30 died; a stability test with 30 men stopped after three trips; four rulers found (two Swedish feet, two Amsterdam feet); raised 1961 | huge ship with open gunports, a crowd on the shore (the story agent suggested a heeling ship; the mockup draws it upright) | a wooden ruler |
+| 5 | Challenger, 1986 | 11:38 liftoff, breakup at 73 s; air temperature 36°F, 15°F colder than any earlier launch; Thiokol's engineers advised against launching below 53°F; foot-long icicles; Feynman's ice-water demonstration 11 Feb 1986 | a glass of ice water and a clamped rubber ring | the O-ring |
 | 6 | 2003 Blackout | about 50 million people; 61,800 MW; alarm and logging software failed shortly after 14:14 EDT; trees tripped lines from about 15:05 | a frozen screen and a sagging line near a tree | the frozen screen |
 | 7 | Samsung Galaxy Note 7, 2016 | discontinued 10 Oct 2016; FAA and PHMSA flight ban 14 Oct; two different defects (original and replacement); lost revenue estimate $17bn or more [C] | the replacement phone failing again | the phone |
 | 8 | Quebec Bridge, 1907 | 75 of 86 workers died, 33 of them Mohawk ironworkers; about 15 seconds; span 549 m; bent chords noticed for weeks; second collapse 1916 (13 died) [C] | a visibly bowed chord while work continued | the bowed chord |
@@ -196,6 +196,6 @@ All twelve pass the channel's filter as of 2026-09-30 (not ongoing legal cases; 
 | 11 | Piper Alpha, 1988 | 226 aboard, 167 dead including 2 rescuers, 61 survived; pump's safety valve removed and a blind flange "hand-tightened only"; permits in different boxes; fire pumps on manual since 19:00 [C] | a steel disc fitted out of sight, two paper permits | the blind flange |
 | 12 | Flixborough, 1974 | 1 June 16:53; 28 killed, 36 injured on site, 53 off site; a 20-inch bypass after reactor 5 cracked 27 March; no drawing, no calculations for the dog-leg or bellows, no pressure test; cause of failure contested | a dog-legged pipe with bellows and a gap where reactor 5 had been | the bellows |
 
-**Dropped by the legal filter:** Morandi Bridge (verdict 16 July 2026, appeal announced), Boeing 737 MAX (civil trials continue, a jury verdict May 2026), Grenfell (charging decisions pending, trials 2029 or later). **Borderline, not used:** Lac-Mégantic. **Not verified in this pass (reserves):** Chernobyl, Three Mile Island, Apollo 13, Columbia, Mars Climate Orbiter, Millennium Bridge, St. Francis Dam, Sleipner A, Ronan Point, Tay Bridge, Kaprun, Sampoong, Banqiao, Therac-25, and the Titan submersible and Baltimore Key Bridge (recent, with legal matters).
+**Dropped by the legal filter:** Morandi Bridge (verdict 16 July 2026, appeal announced), Boeing 737 MAX (civil trials continue, a jury verdict May 2026), Grenfell (charging decisions pending, trials 2029 or later). **Borderline, not used:** Lac-Mégantic. **Not verified in this pass (reserves):** Chernobyl, Three Mile Island, Apollo 13, Columbia, Mars Climate Orbiter, Millennium Bridge, St. Francis Dam, Sleipner A, Ronan Point, Tay Bridge, Kaprun, Sampoong, Banqiao, Therac-25, and the Titan submersible and Baltimore Key Bridge (not checked).
 
 *For detail see Part D (final reports), Appendix G (raw notes) and Part F (data tables).*

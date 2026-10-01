@@ -1,0 +1,38 @@
+VERDICT: Not publishable as is. 5 MUST-FIX errors and about 23 overstatements, wrong counts or broken cross-references remain.
+
+MUST-FIX
+1. B2.7 row 1 (Comet), "Thumbnail moment": "an entire airliner in a purpose-built tank, flown thousands of times faster than real life". Notes story-visuals l.102: "whole fuselage in a tank... wings out through seals; 'flight' = 5 min". "Thousands of times faster" survives only in raw note l.110 (dropped in D7; contradicted by review-factcheck #2). Replace: "the whole fuselage in a purpose-built tank, wings out through seals, 'flown' in about 5 minutes per simulated flight".
+2. B4.3 "Fail pairs (lightness gap under 25)" lists 13 pairs; data/palette-pairs.csv has 21 with dL below 25. Missing: paper/amber 17.5, paper/light green 20.8, light green/red 20.4, light green/brown 22.9, tan/red 23.2, amber/red 23.7, light green/dark green 24.3, white/amber 24.6. So B6.2 "contrast table corrected and extended" is only partly true; thumbnail-styles section 4 has the same gap. Add the eight, or write "13 of the 21 pairs under 25 (all in F1)".
+3. B5.1 rotation row 4 (9 + 4 + 2) puts close cousins 9 and 2 together. Replace with "9 Seat of the Decider | 4 Exhibit A | 1 Tiny Under the Giant" (unique, no cousin pair).
+4. B3.1 "Multiple faces beat a single face": "a 30-video creator study". ctr-evidence notes l.45: "2024, RED platform, n=30 videos [C - tiny sample]". Replace: "a 2024 study of 30 videos on the RED platform (not YouTube; tiny sample, [C])".
+5. B1.4 and B6.2 counts: "14 live spot-checks", "the 16 sources: 14 + 1 + 1 + 1", "12 should-fix". review-factcheck.md has 17 spot-check rows (13 confirmed, 2 partly [Blackout, vidIQ], 1 not found, 1 contradicted) and 16 SHOULD-FIX items (7-22; only its verdict line says 12). Replace: "17 live spot-checks: 13 confirmed, 2 partly, 1 not found, 1 contradicted; 6 must-fix, 16 should-fix".
+
+SHOULD-FIX
+6. B2.7 Challenger: "Thiokol advised against launching below 53°F"; notes l.126: "Thiokol engineers' recommendation". Write "Thiokol's engineers advised".
+7. B2.7 intro "All twelve pass the channel's filter": D7 caveats leave legal status unverified (Challenger, Piper Alpha, Note 7; Hyatt, Big Dig, Blackout settlements). Write "pass on age; legal-case status unverified for those". Reserves "(recent, with legal matters)" is in no source; D7: "Titan and Baltimore Key Bridge were not checked".
+8. B2.1 "Shorts feed" grade "[A/B]": D1 marks the homepage/channel part "[C, secondary]"; D8: "[C]... could not confirm this in an official page". Use "[B/C]" (search is the agent's own JSON check). Same in B4.8.
+9. B2.6 Galloway quote is spliced. D8: "view the title and thumbnail as one, do they compliment each other or contradict/repeat?" (sic).
+10. B2.2 Ink Explainer "77.8K subscribers at month 8": packaging notes l.55: "106K subscribers, 16 videos... first video ~5 months ago"; ctr notes l.80 credit 77.8K to a "vidIQ stats page", cartoon notes l.22 to the case study. They cannot all hold: add to B3.2, mark 77.8K unreliable.
+11. B4.7 and B5.1 "five pair-check questions": D8 step 3 has four questions plus "Drop any pair that fails".
+12. B4.1.7 "Put surprising numbers in the thumbnail, not the title" contradicts B4.1.6 ("a named object or a number") and draft titles 1 ("1,900") and 9 ("50 million"). Write "Put a surprising non-casualty number in the thumbnail when the title does not carry it".
+13. B4.1.2 / B4.11.2 "red circles... banned by the brief": the brief names arrows, dashed lines, diagram symbols. Style 3 itself draws a red ring (scenes.py l.77; B6.3 #3). Write "annotation circles drawn over the picture (Style 3's ring is a painted object)".
+14. B4.5.4 "Known weak points: text, hands, small figures, consistent proportions, precise placement": D6 says only "Text placement, recurring-character consistency and precise placement are documented weak points". The rest is in no note.
+15. B4.4 "(the brief allows 4)": the channel brief has no thumbnail word limit; D6/G2 give no source. Write "1-3 caps words (D6 permits 4)".
+16. B5.1 rows 4, 6, 7, 10 use 9 as "human" and 8 as "scale or scene"; B4.2 defines human = 10 or 7, scale/scene = 1, 2 or 3. Row 10 pairs 9 with 8 (review-design: "2, 8 and 9 are one idea"). Widen B4.2 and add 8/9 to the cousins, or change row 10 to "9 | 5 Cutaway | 3 Impossible Scene".
+17. B5.1 step 3: margins 64/36 px and keep-outs 230x90, 110x110 are 1280x720 values. On a 1920x1080 master use 96/54 px, 345x135, 165x165 (3840x2160: x3).
+18. B3.1 "Red wins... Contradicted by the only large dataset": D2 verdict "MYTH-ish"; 1of10 measures views, correlational. Write "Not supported: 1of10 (views, correlational) has cyan, green, yellow/orange ahead".
+19. B3.1 "60,000x... Untraceable | Traced to a 1982 advertisement" contradicts itself. Write "Untraceable to research (origin: a 1982 advertisement)".
+20. B4.10 "Challenger's 'cover-up' framing", B5.4 "Contested stories (..., Challenger)": story notes l.133 only says "Avoid 'cover-up'" for the title; no report calls Challenger's cause contested. Write "contested causes (Flixborough, Tacoma); avoid a cover-up framing for Challenger".
+21. B4.6 "Subscribers' feed CTR is '10% or less'... optimize for strangers": one secondary source; D2: "no sample or methodology was given". Add the hedge.
+22. B1.4 "reports and the status of every finding are in Part E" and A "(del E)... stanjem popravkov": build_master.py l.289: "The status of every finding is in B6".
+23. B1.3 #8 "shapes, never to copy" is not verbatim; brief: "the example shows the shape, never copy it".
+24. B2.4 "No source compares stick or cartoon thumbnails with realistic ones on clicks | evidence either way is absent": ctr notes l.79 list indirect evidence (Journal of Advertising Dec 2023 illustration-vs-photo ads with donation clicks; Zhao 2019). Write "No YouTube study found; indirect evidence only". Same absolute in B4.1.1.
+25. Originality quote in B2.1 is truncated (review-factcheck #17 recurs): add "giving the impression of mass production without adding the creator's original, authentic insights or perspective". B4.9 "a house style is fine" needs "my reading, not YouTube's words".
+26. B2.1 "Mobile Home experiment [A]": reviewer could not re-open the thread; say so. "Avoid company logos" is D1's inference, not Help 2802268 text.
+27. B6.4 step 6 lists c9fc437 (brief commit) as report/gallery/tools; H3: only 475dc9c.
+28. A (Slovenian): "Za odločitve zadoščata deli A, B in C" -> "zadoščajo"; "Nobene študije ne primerja" -> "Nobena študija ne primerja"; item 12 "Dobro delujoča navada" overclaims (own untested rule) -> "Predlagano pravilo"; item 11 lists »resonanca« as a myth, B3 says Disputed; "867 pregledanih videov" -> "indeksiranih" (only about 105 + 300 viewed); "21,5 $" vs 21.6 in B1/B6.
+
+NIT
+Costs: the stated formula on the transcripts gives $17.4 (8 agents), $19.5 (10) vs B1 $19.3 and $21.6; per-agent figures run 7-16% high, inside the stated +-25%. B2.4 Storified "gets views" vs D4 "can get views". Vasa "heeling" (B2.7) vs upright mockup. B2 intro "every row has a grade" is untrue for B2.4/B2.5. D1 "minimum height 640" vs D8 "minimum width 640" (Shorts) missing from B3. B4.11.6 "white text on pale" vs B4.4 "white with ink outline works on every color". B4.7 "title 3 key idea after 40" vs B6 "title 3 shortened". B6.3 #14 left screen still sky blue like the window (scenes.py l.210). B5.4 "originality rules changed in 2026" unsourced.
+
+B2 rows checked: all 141 table rows (B2.1-B2.7, incl. 15 principles and 12 stories) plus the 13-formula paragraph.

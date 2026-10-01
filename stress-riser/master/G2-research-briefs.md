@@ -277,3 +277,34 @@ The YouTube channel "Stress Riser" has a strict brief: /home/user/test/stress-ri
 ## Output
 Reply with at most ~1,300 words in English: a verdict line, then a numbered list of findings ordered by severity (MUST-FIX = violates the brief or misdepicts a documented fact; SHOULD-FIX; NIT), each with where, what, evidence and the exact fix. Then the ranked list of the ten styles. Be adversarial. Do not praise. If something is fine, say nothing about it.
 ~~~
+
+### Reviewer 3: verification of the master synthesis
+
+~~~text
+You are an adversarial fact-checker for NEW synthesis text. Do NOT spawn other agents. Do NOT edit, commit or push anything in /home/user/test. Write scratch files only under /tmp/claude-0/-home-user-test/6d0dc7ad-48d3-54ee-b7fe-493bfcf23c29/scratchpad/review/master (create it). Use at most about 35 tool calls. Today is 2026-10-01.
+
+## Context
+The channel "Stress Riser" (engineering-disaster explainers) has a strict rule: "nothing invented, every number, date, name and quote is one you are certain of from the sources". A research project (eight research agents, two reviewers) produced thumbnail research. A master dossier was then compiled. Its NEW text (written by the orchestrator, not by the research agents) is in /home/user/test/stress-riser/master/:
+- A-summary-sl.md (Slovenian summary)
+- B1-context-and-method.md, B2-key-numbers.md, B3-myths-and-contradictions.md, B4-recommendations.md, B5-roadmap-risks-decisions.md, B6-review-audit-and-spend.md
+The sources of truth for those claims are:
+- the eight final research reports and two review reports: /home/user/test/stress-riser/master/reports/*.md
+- the raw notes: /home/user/test/stress-riser/research/*.md
+- the corrected report of the ten styles: /home/user/test/stress-riser/thumbnail-styles.md
+- the channel brief: /home/user/test/stress-riser/channel-brief.md
+- data tables: /home/user/test/stress-riser/data/*.csv and *.md
+- the agents' transcripts (for tool-call counts, durations, costs): /tmp/claude-0/-home-user-test/6d0dc7ad-48d3-54ee-b7fe-493bfcf23c29/tasks/*.output (large JSONL files: NEVER print them; parse them with Python and print only aggregates)
+
+## Your tasks
+1. B2-key-numbers.md is a ledger of facts, numbers and quotes (about 200 rows). Check EVERY row against the reports and notes: wrong numbers, wrong units, wrong attribution (who said it, which study, which year), wrong evidence grade, quotes that are not verbatim, claims stronger than the source, claims not in any source. Be exhaustive on numbers.
+2. B3-myths-and-contradictions.md: check each myth and contradiction row (verdict and reason) against the sources; flag anything unsupported or overstated.
+3. B1: check the method table (tool calls, durations, estimated costs per agent) against the transcripts (count tool_use blocks in assistant messages per agent file; durations from first and last timestamps; costs are estimates from usage fields at $2/$10 per million input/output, $0.20 cache read, $2.50 cache write: just check they are plausible and the totals add up). Check the brief-constraint table against channel-brief.md and the 'observations about the brief' for accuracy.
+4. B4: check that every recommendation is supported by the reports (or clearly marked as the orchestrator's heuristic), that numbers and specs match the sources (text spec, color rules, export sizes, margins, testing arithmetic), and that nothing contradicts the brief.
+5. B5: check the 10-video rotation table: each row must have one human, one mechanism and one scale-or-scene variant and must NOT put two 'close cousins' together (cousins: 1 and 8; 4 and 5; 2 and 9). Check the log template and risks for consistency with the sources.
+6. B6: check that each status ('Fixed', 'Partly', 'Open', 'Moot') matches what thumbnail-styles.md and the mockup code (/home/user/test/stress-riser/tools/scenes.py) actually now contain; check the reviewers' findings are summarised accurately against master/reports/review-*.md; check the spend table.
+7. A-summary-sl.md: check it against the English content for drift in numbers or hedges; check basic Slovenian grammar problems you are confident about (do not nitpick style).
+8. Check every cross-reference in these files (for example 'see C6', 'D1', 'G8', 'F1', 'E1', 'H1', 'B3', 'B4.7'): the chapter or section it names must exist and must contain what is claimed. The chapter scheme: Part A summary; B1-B6 synthesis; C1-C12 = sections 1-12 of thumbnail-styles.md; D1-D8 = the eight final reports in this order: platform, ctr-evidence, psychology, niche-audit, cartoon-audit, design-system, story-visuals, packaging; E1-E2 = review-factcheck, review-design; F1-F6 data; G1 intro, G2 briefs, G3-G10 = raw notes in this order: platform, ctr-evidence, psychology, niche-audit, cartoon-audit, story-visuals (G8), design-system, packaging; H1 sources, H2 brief, H3 file map, H4 glossary.
+
+## Output
+Reply with at most ~1,200 words in English: a verdict line; then a numbered list of findings ordered by severity (MUST-FIX = a false or unsupported factual claim or a wrong number; SHOULD-FIX = overstatement, wrong hedge or grade, broken cross-reference; NIT). For each: file and row or section, what is wrong, the evidence (file and quote), and the exact replacement text. Then one line saying how many B2 rows you checked. Be adversarial. Do not praise. If something is fine, say nothing about it.
+~~~

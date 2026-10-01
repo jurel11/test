@@ -3,7 +3,7 @@
 
 Inputs (all inside the repository folder stress-riser/):
   master/*.md             summary (Slovenian), synthesis B1-B6, research briefs, glossary, file map
-  master/reports/*.md     the eight final research reports and the two review reports (verbatim)
+  master/reports/*.md     the eight final research reports and the three review reports (verbatim)
   thumbnail-styles.md     the corrected report of the ten styles (Part C)
   research/*.md           the eight agents' raw working notes (Part G)
   data/*.csv, data/*.md   tables and small reports (Part F)
@@ -16,6 +16,7 @@ from collections import Counter, OrderedDict
 from urllib.parse import urlparse
 
 import markdown
+from markdown.extensions import Extension
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -94,6 +95,23 @@ def normalize_lists(md):
     return "\n".join(out)
 
 
+def blank_before_lists(md):
+    """Python-Markdown only starts a list after a blank line; the reviews put '1. ...' straight under a heading line."""
+    out, inf, in_list = [], False, False
+    for line in md.split("\n"):
+        if FENCE.match(line):
+            inf = not inf
+        item = (not inf) and bool(re.match(r"^\d+\.\s", line))
+        if item and not in_list and out and out[-1].strip():
+            out.append("")
+        if item:
+            in_list = True
+        elif line.strip() and not line.startswith(" "):
+            in_list = False
+        out.append(line)
+    return "\n".join(out)
+
+
 def nest_story_bullets(md):
     """The story report uses '1. TITLE' followed by '- fact' lines at column 0: indent the bullets under the item."""
     out, in_item = [], False
@@ -128,7 +146,10 @@ SCRATCH_DIR = re.compile(r"/tmp/claude-0/[^\s)]*?/scratchpad/research/([a-z-]+)/
 
 def clean_paths(md):
     md = SCRATCH_NOTES.sub(lambda m: f"research/{m.group(1)}.md", md)
-    return SCRATCH_DIR.sub(lambda m: f"research/{m.group(1)}/", md)
+    md = SCRATCH_DIR.sub(lambda m: f"research/{m.group(1)}/", md)
+    # the reviewers' prompts name their scratch folders and the agents' transcripts
+    md = re.sub(r"/tmp/claude-0/[^/\s]+/[0-9a-f-]{36}/scratchpad/", "<scratchpad>/", md)
+    return re.sub(r"/tmp/claude-0/[^/\s]+/[0-9a-f-]{36}/tasks/", "<agent-transcripts>/", md)
 
 
 def autolink(h):
@@ -142,9 +163,18 @@ def autolink(h):
     return re.sub(r'(<a\b[^>]*>.*?</a>)|(<[^>]+>)|(https?://[^\s<>"\']+)', repl, h, flags=re.S)
 
 
+class EscapeHtml(Extension):
+    """The notes quote placeholders such as <title> and <img>: show them as text, never as markup.
+    (An unescaped <title> swallows the rest of the page, scripts included.)"""
+
+    def extendMarkdown(self, md):
+        md.preprocessors.deregister("html_block")
+        md.inlinePatterns.deregister("html")
+
+
 def to_html(md, prefix, nl2br=False):
     md = clean_paths(md)
-    exts = ["tables", "fenced_code", "sane_lists", "toc"]
+    exts = [EscapeHtml(), "tables", "fenced_code", "sane_lists", "toc"]
     if nl2br:
         exts.append("nl2br")
     conv = markdown.Markdown(extensions=exts, extension_configs={"toc": {"slugify": slug_factory(prefix)}})
@@ -249,13 +279,25 @@ for name in b_files:
             add_toc(3, id_, t)
 
 # ----------------------------------------------------------------------------- Part C
-parts_out.append(part_header("C", "Part C", "The ten thumbnail styles (the corrected report)", "The report as corrected after the two independent reviews: constraints, evidence, the house system, the ten styles with mockups, the phone-size results, the testing playbook, the fact registry, decisions, Shorts and caveats. Section numbers C1 to C12 are referred to throughout this file."))
+parts_out.append(part_header("C", "Part C", "The ten thumbnail styles (the corrected report)", "The report as corrected after the independent reviews: constraints, evidence, the house system, the ten styles with mockups, the phone-size results, the testing playbook, the fact registry, decisions, Shorts and caveats. Section numbers C1 to C12 are referred to throughout this file."))
 add_toc(1, "C", "C. The ten thumbnail styles")
 c_md = read(os.path.join(ROOT, "thumbnail-styles.md"))
 c_md = re.sub(r"(?m)^## (\d+)\. ", lambda m: f"## C{m.group(1)}. ", c_md)
-c_md = re.sub(r"(?m)^(### Style (\d+) .*)$", lambda m: m.group(1) + "\n\n" + style_block(int(m.group(2))) + "\n", c_md)
+style_blocks = {}
+
+
+def inject_style_block(m):
+    key = f"STYLEBLOCKTOKEN{int(m.group(2))}X"
+    style_blocks[key] = style_block(int(m.group(2)))
+    return m.group(1) + "\n\n" + key + "\n"
+
+
+c_md = re.sub(r"(?m)^(### Style (\d+) .*)$", inject_style_block, c_md)
 c_md = demote(normalize_lists(c_md), shift=1, drop_h1=True)
 c_html = to_html(c_md, "c")
+for key, block in style_blocks.items():
+    assert f"<p>{key}</p>" in c_html, key
+    c_html = c_html.replace(f"<p>{key}</p>", block)
 c_html = re.sub(r'<h3 id="c-c(\d+)-[^"]*">', lambda m: f'<h3 id="C{m.group(1)}">', c_html)
 parts_out.append(f'<section class="prose" id="Cbody">{c_html}</section>')
 for id_, t in heading_ids(c_html, 3):
@@ -286,10 +328,10 @@ for id_, slug, title in d_list:
     add_toc(2, id_, title, words(md))
 
 # ----------------------------------------------------------------------------- Part E (reviews)
-parts_out.append(part_header("E", "Part E", "The two independent reviews", "The full reports of the two reviewers who audited the first draft, verbatim. The status of every finding is in B6."))
-add_toc(1, "E", "E. The two independent reviews")
-for id_, slug, title in (("E1", "review-factcheck", "E1. Reviewer 1: fact and claim audit"), ("E2", "review-design", "E2. Reviewer 2: brief compliance and design critique")):
-    md = normalize_lists(read(os.path.join(M, "reports", slug + ".md")))
+parts_out.append(part_header("E", "Part E", "The three independent reviews", "The full reports of three reviewers, verbatim: two audited the first draft (E1 facts and claims, E2 brief compliance and design) and a third checked the master synthesis in Part B against the reports and data (E3). The status of every finding is in B6."))
+add_toc(1, "E", "E. The three independent reviews")
+for id_, slug, title in (("E1", "review-factcheck", "E1. Reviewer 1: fact and claim audit"), ("E2", "review-design", "E2. Reviewer 2: brief compliance and design critique"), ("E3", "review-synthesis", "E3. Reviewer 3: check of the master synthesis")):
+    md = normalize_lists(blank_before_lists(read(os.path.join(M, "reports", slug + ".md"))))
     md = demote(md, base=4) if heading_levels(md) else md
     h = to_html(md, id_.lower(), nl2br=True)
     parts_out.append(open_chapter(id_, title, h, words(md)))
@@ -731,7 +773,7 @@ JS = r"""
 
 stat_items = [
     [f"{stats['words']:,}", "words in this file"],
-    ["10", "agents (8 research, 2 review)"],
+    ["11", "agents (8 research, 3 review)"],
     ["730", "research tool calls"],
     ["867", "real thumbnails downloaded"],
     ["45", "palette pairs computed"],

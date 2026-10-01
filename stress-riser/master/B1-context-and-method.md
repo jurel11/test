@@ -38,7 +38,7 @@ These are points where the brief is silent, ambiguous or internally inconsistent
 5. **The "two years old" rule moves with the date.** On 2026-10-01 a disaster from before about 2024-10-01 qualifies; the cutoff must be recomputed on each publication date.
 6. **"Every title is a question"** is firm, but the evidence on questions in headlines is mixed (see B2.3). The fix is to make questions concrete and let the thumbnail carry the specific stakes.
 7. **Forbidden-topic overlap with the best-known stories.** Several famous cases fail the filter today (Morandi Bridge: first-instance verdict 16 July 2026, appeal announced; Boeing 737 MAX: civil trials continue; Grenfell: charging decisions pending, trials 2029 or later). Lac-Mégantic is borderline.
-8. **The brief's own examples all point to Vajont** (1,900 people, 270 million cubic metres, Edoardo Semenza, a dam that never broke). It is a natural first story, but the examples are "shapes, never to copy".
+8. **The brief's own examples all point to Vajont** (1,900 people, 270 million cubic metres, Edoardo Semenza, a dam that never broke). It is a natural first story, but the brief says of its own examples that each "shows the shape, never copy it".
 
 ### B1.4 Method
 
@@ -55,15 +55,17 @@ Eight research agents ran in parallel, each with one slice and the same rules: r
 | Story-to-visual (fact-checked) | 57 | about 16 min | $2.23 | 12 stories with facts, filter results, thumbnail moments, ranking |
 | Packaging, testing, Shorts | 81 | about 15 min | $1.68 | Pairing patterns, testing arithmetic, cold start, identity vs variety, Shorts |
 | **Total, eight agents** | **730** | | **about $19.3** | |
-| Reviewer 1 (facts and claims) | 32 | about 10 min | $1.51 | 14 live spot-checks, 6 must-fix and 12 should-fix findings |
+| Reviewer 1 (facts and claims) | 32 | about 10 min | $1.51 | 17 live spot-checks, 6 must-fix and 16 should-fix findings |
 | Reviewer 2 (brief and design) | 29 | about 9 min | $0.72 | Palette audit, brief compliance, distinctness, 7 must-fix findings |
-| **Total, ten agents** | | | **about $21.6** | |
+| **Subtotal, ten agents** | | | **about $21.6** | |
+| Reviewer 3 (check of the master synthesis) | 26 | about 19 min | $1.82 | All 141 table rows of B2 checked against the reports and data; 5 must-fix and about 23 should-fix corrections |
+| **Total, eleven agents** | | | **about $23.4** | |
 
-Costs are estimates from token counts at the published Sonnet 5.5 prices ($2 per million input tokens, $10 output, $0.20 cache reads, $2.50 cache writes), with an error of about ±25%.
+Costs are estimates from token counts at the published Sonnet 5.5 prices ($2 per million input tokens, $10 output, $0.20 cache reads, $2.50 cache writes), with an error of about ±25%. A second computation by a reviewer with the same formula gave $17.4 for the eight research agents and $19.5 for ten (the per-agent figures above run 7–16% higher), so read the agent costs as ranges: $17–19 for eight, $19.5–21.6 for ten, $21–23 for eleven.
 
 **Effort cap.** After the first measurement showed the agents were spending about $1.5 per minute with no limit, each was asked to wrap up within about 20 further tool calls. Nothing already saved was lost. The owner later raised the total ceiling to $60–70; planning kept the estimate under $55 so that even a +25% error stays below $70.
 
-**Review cycle.** The first complete draft (report, ten mockups, lookbook) was reviewed by two independent agents who had no stake in it. Their reports and the status of every finding are in Part E. The result: the diptych was replaced, black backgrounds removed, several depictions redrawn to match the sources, and many claims corrected or hedged. The corrected version is Part C.
+**Review cycle.** The first complete draft (report, ten mockups, lookbook) was reviewed by two independent agents who had no stake in it. Their reports are in Part E; the status of every finding is in B6. The result: the diptych was replaced, black backgrounds removed, several depictions redrawn to match the sources, and many claims corrected or hedged. The corrected version is Part C. When this master file was compiled, a third independent agent checked the synthesis in Part B against the reports and the data; its report is E3 and all its corrections are applied (B6.6).
 
 ### B1.5 Access limits (what could not be read)
 

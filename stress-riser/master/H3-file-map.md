@@ -13,7 +13,7 @@ Everything is in the repository `jurel11/test` on the branch `claude/stress-rise
 | `thumbnails/svg/NN-*.svg` | Editable vector sources |
 | `thumbnails/qa-phone-sizes.png` | Each style at 360 px, 168 px (light and dark feed), grayscale and blurred |
 | `research/*.md` | The eight agents' working notes (G3–G10) and the palette pair report |
-| `master/*.md` | The sources of this file: summary, synthesis, briefs, and `reports/` with the ten final reports |
+| `master/*.md` | The sources of this file: summary, synthesis, briefs, and `reports/` with the eleven final reports (eight research reports and three reviews) |
 | `data/` | CSV tables (niche and cartoon video indexes, palette pairs, fonts, OCR) and small reports |
 | `tools/thumb_preview.py` | The feed preview rig: light and dark feed, several sizes, badge, grayscale, blur, safe zones |
 | `tools/scenes.py`, `lib.py`, `render.py`, `fonts/` | The mockup generator (needs a headless Chromium) |
@@ -23,4 +23,4 @@ Everything is in the repository `jurel11/test` on the branch `claude/stress-rise
 
 **Rebuilding this file:** `python3 tools/build_master.py` (needs the Python package `markdown`; images and data are read from the folders above).
 
-**Commits:** `c9fc437` brief stored; `475dc9c` research, ten styles, gallery, tools; `cfc1310` corrections after the independent reviews; the next commit adds this master file.
+**Commits:** `c9fc437` brief stored; `475dc9c` research, ten styles, gallery, tools; `cfc1310` corrections after the first two independent reviews; `dfcadcd` this master file; the commit after it applies the third review (E3).

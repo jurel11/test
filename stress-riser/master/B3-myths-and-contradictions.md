@@ -14,9 +14,9 @@ Every item was researched. "Untraceable" means no primary source was found for t
 | "Median +32.7% uplift from A/B testing" | Untraceable | No source |
 | "Netflix found contrast is the biggest predictor" | Unsupported attribution | No support found for the claim on Netflix's own page |
 | "13 ms to stop the scroll" | Misapplied | A lab picture-detection result (Potter 2014; not replicated at 27 ms by Maguire and Howe 2016), not a feed effect |
-| "60,000× faster than text" | Untraceable | Traced to a 1982 advertisement |
+| "60,000× faster than text" | Untraceable to research | The only origin found is a 1982 advertisement claim |
 | "80% brand recognition from color" | Unsupported | A marketing statistic; secondary sources say it came from colored vs monochrome documents |
-| "Red wins" / "warm beats cool" | Contradicted by the only large dataset | 1of10: cyan (+36%), green and yellow/orange ahead |
+| "Red wins" / "warm beats cool" | Not supported | The only large dataset (1of10; views, correlational, viral videos only) has cyan (+36%), green and yellow/orange ahead |
 | "Faces always win" | Contested | 1of10: about the same overall; vidIQ: common among winners with no base rate |
 | "Shocked, open-mouth faces win" | Contested | About 5% of vidIQ's breakouts; MrBeast's team moved to a closed mouth; YouTube's own tips page recommends "a shocked face" |
 | "Rule of thirds" and "F-pattern" for single-subject phone thumbnails | No CTR evidence | A centre preference exists for single subjects (Palmer 2008); the F-pattern comes from text-page studies; YouTube's own tips page suggests the rule of thirds |
@@ -26,7 +26,7 @@ Every item was researched. "Untraceable" means no primary source was found for t
 | "Bright, saturated thumbnails win" | Weak | 1of10 (winners only) supports; both audits found brightness, saturation and clutter did not separate top from weak within a channel |
 | "A consistent template gives +38% CTR" and the "70/30 rule" | Untraceable | No method behind either |
 | "Series blindness" (viewers ignore a repeated template) | No YouTube evidence | Only banner-blindness work on ads exists |
-| "Multiple faces beat a single face" | Contested | 1of10 says yes; a 30-video creator study says group thumbnails got 37% fewer views |
+| "Multiple faces beat a single face" | Contested | 1of10 says yes; a 2024 study of 30 videos on the RED platform (not YouTube; tiny sample, [C]) says group thumbnails got 37.4% fewer views |
 
 **Platform folklore**
 
@@ -63,7 +63,7 @@ Every item was researched. "Untraceable" means no primary source was found for t
 
 | # | Contradiction | Resolution used |
 |---|---|---|
-| 1 | Faces: 1of10 says multiple faces beat a single face; a 30-video study says the opposite | Treat as contested; limit to at most three figures (Netflix) and test |
+| 1 | Faces: 1of10 says multiple faces beat a single face; a 2024 study of 30 videos on the RED platform (not YouTube; tiny sample, [C]) says the opposite | Treat as contested; limit to at most three figures (Netflix) and test |
 | 2 | Titles: 1of10 says negative titles get 22% more views; Cui 2024 says positive titles beat negative | Do not optimize sentiment of titles; keep the brief's neutral, curious question form |
 | 3 | Questions: Fang and Wheeler 2026 negative; Le Quéré mixed (3 negative, 2 positive, 4 null); OverseerOS neutral | Keep questions (the brief); make them concrete; put stakes in the thumbnail |
 | 4 | Brightness: 1of10 supports brightness; both audits found no within-channel separation | Treat bright and lit as a hypothesis; avoid dark scenes for other reasons (brief, limbs) |
@@ -84,5 +84,8 @@ Every item was researched. "Untraceable" means no primary source was found for t
 | 19 | Flixborough: cause of failure contested (HSE: the bypass failure "may have been caused by" a pipe fire) | Mark the cause as contested; the picture marks the modification, not a proven cause |
 | 20 | Blackout: alarm failure "shortly after 14:14"; trees tripped lines from about 15:05 | Keep the timeline separate; show the line still clear of the tree |
 | 21 | Reviewer vs first draft: ranking claim "the Comet agent's own ranking" is not in any saved note | Removed from the report |
+| 22 | Ink Explainer's subscriber count: 106K on the channel page and in three reports (2026-09-30; "first video about 5 months ago") vs 77.8K "at month 8" in a third-party case study (credited to a "vidIQ stats page" in one note) | Unresolved; use 106K (read from the channel page) and treat 77.8K as unreliable |
+| 23 | Shorts cover minimum size: "minimum height 640 px" (D1) vs "minimum width 640" (D8) | Unresolved; irrelevant at the recommended 2160×3840 |
+| 24 | Reviewer 1's verdict line says 14 spot-checks and 12 should-fix findings; its tables hold 17 spot-check rows and 16 should-fix items | The tables are counted (see B6.2) |
 
 *For the full lists see D2 (CTR evidence), D8 (packaging) and G8 (story notes).*
