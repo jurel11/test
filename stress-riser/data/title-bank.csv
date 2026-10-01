@@ -1,0 +1,37 @@
+story,slot,pattern,title,short_title,fact_basis,confidence,competitor_note
+Comet 1954,A,Odd true detail,Why did a jet airliner end up in a water tank?,Why did engineers test a jet in water?,Whole fuselage tested in a water tank (Withey 1997; Aerossurance),B/C,Nobody in the top 8 results uses the tank angle
+Comet 1954,B,Paired failures,Why did two Comet airliners break apart in flight in 1954?,,"35 died 10 Jan (Elba), 21 died 8 Apr (Naples), both 1954",B/C,Mustard (6.5M) uses 'Why You Wouldn't Want to Fly...'
+Comet 1954,C,Searchable mechanism,How did a tank of water solve the Comet airliner mystery?,,"Tank test failed after 3,057 cycles; fatigue crack, not the windows",B/C,Disaster Breakdown has 'What Really Caused The Comet Crashes?'
+Tacoma Narrows 1940,A,Age contrast,Why did a four-month-old bridge twist itself apart?,Why did a new bridge twist itself apart?,"Opened 1 July, fell 7 Nov 1940 (WSDOT)",A,"Crowded: five results over 1M views, mostly film clips"
+Tacoma Narrows 1940,B,Odd true detail,Why were workers chewing lemons on a twisting bridge?,,"Workers chewed lemons against nausea (documented, D7)",B,Nobody in the top results uses it
+Tacoma Narrows 1940,C,Searchable plus number,Why did the Tacoma Narrows Bridge collapse in a 42 mph wind?,,Wind 42 mph measured 09:30; collapse 11:02 (WSDOT),A,"Practical Engineering: 'Why the Tacoma Narrows Bridge Collapsed' (1.7M); cause still argued, say so in the video"
+Vajont 1963,A,Paradox with a number,"Why did 1,900 people die under a dam that never broke?","Why did 1,900 die under a dam that held?","1,917 dead (Italian Civil Protection), counts 1,919 to 2,056, so about 1,900; dam stood",B,All top results are labels or statements
+Vajont 1963,B,Mechanism,How can a dam hold and still flood a village below it?,,Slope slid about 260 million cubic meters into the lake; wave over the crest; village below (D7),B,-
+Vajont 1963,C,Searchable,What really happened at the Vajont Dam in 1963?,,9 Oct 1963 (Civil Protection),B,Top results are statements: 'The Vajont Dam Disaster'
+Vasa 1628,A,Contrast with a crowd,Why did a brand-new warship sink in front of its own crowd?,Why did a new warship sink on day one?,"Sank on maiden voyage after about 1,300 m; crowd on shore (secondary)",C,"RealLifeLore: 'Destroyed by a Breeze'; Atomic Frontier: 'Who Sank the Vasa?' (blame framing, avoid)"
+Vasa 1628,B,Distance contrast,Why did a warship sink under a mile into its first voyage?,,"About 1,300 m is 0.8 mile (so 'under a mile')",C,-
+Vasa 1628,C,Searchable,Why did the Vasa sink on its maiden voyage?,,Autocomplete: 'why did the vasa sink',C,-
+Challenger 1986,A,Small cause,Why did a rubber ring destroy a space shuttle?,Why did a rubber ring doom a shuttle?,O-ring joint; breakup at 73 s (Rogers Commission Vol. 1),A,Saturated; the rubber-ring angle is not in the top results
+Challenger 1986,B,Evidence demo,Why did a glass of ice water explain Challenger?,,"Feynman's ice-water demonstration, 11 Feb 1986 (Rogers Vol. 4)",A,-
+Challenger 1986,C,Decision seat,Why did Challenger launch in the coldest weather yet?,,"36°F, 15°F colder than any earlier launch (Rogers Vol. 1)",A,Bailey Sarian already has 'What really happened to the Challenger?' (684K)
+Northeast blackout 2003,A,Small cause with a number,Why did a few trees help black out 50 million people?,Why did trees help black out 50 million?,"About 50 million people; lines tripped on overgrown trees from 15:05; the report lists four cause groups, so 'help' (Task Force)",A,Practical Engineering owns 'What Really Happened During the 2003 Blackout?' (5.5M): do not copy it
+Northeast blackout 2003,B,Mechanism,How can a silent alarm hide a failing power grid?,,Alarm system failed after 14:14 and stayed dead; operators 'remained unaware' (Task Force),A,Half as Interesting blames 'the software bug' (unverified in the report)
+Northeast blackout 2003,C,Searchable,Why did the lights go out across the Northeast in 2003?,,14 Aug 2003 (Task Force),A,-
+Galaxy Note 7 2016,A,Paradox,Why did the same phone fail for two different reasons?,Why did a replaced phone fail again?,"Two defects: electrodes touching at a fold (original), welding defects (replacement); secondary",C,Tech channels dominate (JerryRigEverything 14.6M); weakest fit for the channel
+Galaxy Note 7 2016,B,Contrast,Why did a recalled phone fail again after it was replaced?,,Discontinued 10 Oct 2016; FAA/PHMSA flight ban 14 Oct,C,-
+Galaxy Note 7 2016,C,Searchable,Why did the Galaxy Note 7 catch fire?,,Autocomplete: 'why did the galaxy note 7 explode',C,-
+Quebec Bridge 1907,A,Decision seat,Why did engineers keep building a bending bridge?,Why keep building a bending bridge?,Bent lower chords noticed for weeks (secondary),C,Brick Immortar (678K) and Iron and Memory frame it as ego: avoid blame
+Quebec Bridge 1907,B,Time contrast,Why did an unfinished bridge fall in just 15 seconds?,,Collapse took about 15 seconds; 29 Aug 1907 (secondary),C,-
+Quebec Bridge 1907,C,Searchable,What went wrong with the Quebec Bridge in 1907?,,29 Aug 1907,C,-
+Big Dig ceiling 2006,A,Small cause,Why did a Boston tunnel ceiling fall after glue let go?,Why did a tunnel ceiling fall in Boston?,Epoxy with poor creep resistance (NTSB HAR-07/02),A,"Industrial Empire (800K, 3 weeks old) already has 'Then the Glue Began to Creep'"
+Big Dig ceiling 2006,B,Mechanism,How can glue slowly lose its grip on a tunnel ceiling?,,Anchors slowly let go through creep (NTSB),A,-
+Big Dig ceiling 2006,C,Searchable,What caused the Big Dig ceiling collapse in Boston?,,"10 July 2006, 11:01 pm; about 26 tons fell (NTSB)",A,Autocomplete shows people search 'big dig ceiling collapse'
+Hyatt Regency 1981,A,Small cause,Why did one small change help bring down two hotel walkways?,Why did two hotel walkways fall in 1981?,As-built change essentially doubled the load; original detail was about 60% of code (NBS 1982),A,"Crowded angle: 'This Tiny Change KILLED 114 People' (410K), 'The Design Change That Took 114 Lives' (1.1M)"
+Hyatt Regency 1981,B,Mechanism,How did swapping one steel rod for two double the load?,,Two sets of rods replaced one continuous rod (NBS),A,Explains the change instead of just naming it
+Hyatt Regency 1981,C,Searchable,What really happened to the Hyatt Regency walkways?,,"17 July 1981, Kansas City (NBS)",A,-
+Piper Alpha 1988,A,Object,Why did one hand-tightened steel disc start a platform fire?,Why did a steel disc start a rig fire?,Blind flange fitted 'hand-tightened only' after the safety valve was removed (secondary summary of Cullen); other failures followed,C,'167 Men Died From Reasonable Decisions' (3.7M) already uses the chain-of-decisions angle
+Piper Alpha 1988,B,Systems,How can a safety valve go missing without anyone knowing?,,Permits filed in different boxes (secondary),C,-
+Piper Alpha 1988,C,Searchable,Why did the Piper Alpha oil platform burn in 1988?,,"6 July 1988, North Sea",C,Smithsonian: 'What Caused the Giant Piper Alpha Oil Rig Explosion?' (1.1M)
+Flixborough 1974,A,Small cause,Why did one bypass pipe blow up a whole chemical plant?,Why did a bypass pipe blow up a plant?,"20-inch bypass; 1 June 1974 (HSE); trigger contested, say so",A,Raven's Eye already has 'Temporary Bypass Pipe Failed'
+Flixborough 1974,B,Decision chain,How could a chemical plant fit a pipe with no drawing?,,"HSE: no drawing, no calculations, no pressure test",A,-
+Flixborough 1974,C,Searchable,What happened at Flixborough in 1974?,,"1 June 1974, 16:53 (HSE)",A,Plainly Difficult (1M): 'Where Did it go so Wrong?'

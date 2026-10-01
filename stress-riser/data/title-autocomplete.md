@@ -1,0 +1,183 @@
+# YouTube search-box suggestions per candidate story (generated)
+
+Collected with `tools/title_autocomplete.py` from the public suggest endpoint (client=firefox, ds=yt, hl=en, gl=us) on the run date. Suggestions depend on region, time and personalization; they show how people phrase searches, not how many search.
+
+## Comet airliner 1954
+
+- `why did de havilland comet` -> de havilland comet 1 / de havilland comet crashes / de havilland comet disaster / de havilland comet 4c
+- `why was de havilland comet` -> de havilland comet 1 / de havilland comet documentary / de havilland comet disaster / de havilland comet crashes
+- `how did de havilland comet` -> de havilland comet 1 / de havilland comet documentary / de havilland comet crashes / the de havilland comet
+- `what happened de havilland comet` -> de havilland comet disaster / de havilland comet crashes / de havilland comet 1
+- `what caused de havilland comet` -> de havilland comet crashes / de havilland comet disaster / de havilland comet documentary
+- `what went wrong de havilland comet` -> de havilland comet disaster / de havilland comet 1 / de havilland comet 3
+- `de havilland comet explained` -> de havilland comet disaster / de havilland comet documentary / de havilland comet crashes
+- `de havilland comet documentary` -> de havilland comet documentary / de havilland comet 1 / de havilland comet crashes / de havilland comet disaster
+- `de havilland comet engineering` -> de havilland comet disaster / de havilland comet / de havilland comet 4 / de havilland comet 1
+- `de havilland comet animation` -> de havilland comet crash animation / de havilland comet flying / de havilland comet footage / de havilland comet sound
+- `de havilland comet what if` -> de havilland comet 1 / de havilland comet disaster / de havilland comet crashes
+- `de havilland comet did you know` -> de havilland comet 1 / de havilland comet disaster / de havilland comet crashes
+
+## Tacoma Narrows 1940
+
+- `why did tacoma narrows bridge` -> why did tacoma narrows bridge collapse / why the tacoma narrows bridge collapse
+- `why was tacoma narrows bridge` -> why the tacoma narrows bridge collapse / why did the tacoma narrows bridge collapse
+- `how did tacoma narrows bridge` -> how did the tacoma narrows bridge collapse / why the tacoma narrows bridge collapse
+- `what happened tacoma narrows bridge` -> why did the tacoma narrows bridge collapse / why the tacoma narrows bridge collapse
+- `what caused tacoma narrows bridge` -> why the tacoma narrows bridge collapse / why did tacoma narrows bridge collapse
+- `what went wrong tacoma narrows bridge` -> why the tacoma narrows bridge collapse / why did the tacoma narrows bridge collapse
+- `tacoma narrows bridge explained` -> tacoma narrows bridge explained / the tacoma narrows bridge / tacoma bridge collapse 1940 / the tacoma narrows bridge collapse
+- `tacoma narrows bridge documentary` -> tacoma narrows bridge documentary / tacoma narrows bridge collapse documentary / tacoma bridge collapse 1940 / tacoma narrows bridge disaster / tacoma narrows bridge collapse (1940)
+- `tacoma narrows bridge engineering` -> tacoma narrows bridge construction / tacoma bridge collapse 1940 / tacoma narrows bridge collapse (1940)
+- `tacoma narrows bridge animation` -> tacoma narrows bridge animation / the tacoma narrows bridge collapse / the tacoma narrows bridge disaster / tacoma narrows bridge collapse (1940)
+- `tacoma narrows bridge what if` -> tacoma narrows bridge collapse (1940) / why did the tacoma narrows bridge collapse / why the tacoma narrows bridge collapse
+- `tacoma narrows bridge did you know` -> the tacoma narrows bridge collapse / the tacoma narrows bridge / the tacoma narrows bridge disaster / why did the tacoma narrows bridge collapse
+
+## Vajont 1963
+
+- `why did vajont dam` -> vajont dam disaster / vajont dam disaster documentary / vajont dam / vajont dam collapse
+- `why was vajont dam` -> vajont dam disaster documentary / vajont dam disaster / vajont dam disaster video / vajont dam
+- `how did vajont dam` -> vajont dam disaster documentary / vajont dam disaster / vajont dam disaster video / vajont dam documentary
+- `what happened vajont dam` -> vajont dam disaster / vajont disaster / vajont dam disaster documentary / vajont dam collapse
+- `what caused vajont dam` -> vajont disaster / vajont dam disaster documentary / vajont dam disaster / vajont dam failure
+- `what went wrong vajont dam` -> the vajont dam disaster / vajont disaster / vajont dam disaster documentary / vajont dam failure
+- `vajont dam explained` -> vajont dam disaster explained / vajont dam / vajont disaster / vajont dam disaster / vajont dam documentary / vajont dam disaster documentary
+- `vajont dam documentary` -> vajont dam documentary / vajont dam movie / vajont disaster / vajont dam / vajont dam disaster / vajont dam disaster documentary
+- `vajont dam engineering` -> vajont dam disaster / vajont dam failure / vajont dam simulation / vajont dam collapse / vajont dam tsunami
+- `vajont dam animation` -> vajont dam animation / vajont dam disaster / vajont disaster / vajont dam / vajont dam failure
+- `vajont dam what if` -> vajont disaster / vajont dam disaster / vajont dam tsunami / vajont dam / vajont dam collapse
+- `vajont dam did you know` -> vajont disaster / vajont dam / vajont dam disaster
+
+## Vasa 1628
+
+- `why did vasa ship` -> story of the vasa ship / why did the vasa sink / tour of the vasa ship
+- `why was vasa ship` -> story of the vasa ship / the vasa ship documentary
+- `how did vasa ship` -> story of the vasa ship
+- `what happened vasa ship` -> story of the vasa ship / tour of the vasa ship / the vasa ship recovery / why did the vasa sink
+- `what caused vasa ship` -> story of the vasa ship / the vasa ship documentary
+- `what went wrong vasa ship` -> story of the vasa ship / the vasa ship documentary / tour of the vasa ship / the vasa ship recovery
+- `vasa ship explained` -> vasa ship history / vasa ship / vasa ship interior
+- `vasa ship documentary` -> vasa ship documentary / vasa ship documentary english / vasa ship history / vasa warship documentary
+- `vasa ship engineering` -> vasa ship / vasa ship documentary / vasa museum ship
+- `vasa ship animation` -> vasa ship animation / vasa stockholm ship / vasa ship
+- `vasa ship what if` -> vasa ship / vasa warship inside
+- `vasa ship did you know` -> vasa warship inside / vasa ship / vasa ship bodies / vasa ship history
+
+## Challenger 1986
+
+- `why did challenger shuttle` -> why did challenger explode / what happened to the challenger shuttle / what really happened to the challenger shuttle
+- `why was challenger shuttle` -> why was the space shuttle retired / why did the challenger explode / why did space shuttle challenger explode
+- `how did challenger shuttle` -> how did space shuttle launch work / how does space shuttle re enters earth / how does space shuttle land / how did the challenger explode / what happened to the challenger shuttle
+- `what happened challenger shuttle` -> what happened to challenger shuttle / what happened to space shuttle columbia / what really happened to the challenger shuttle
+- `what caused challenger shuttle` -> what caused challenger explosion / what caused the space shuttle challenger disaster / what caused the challenger disaster
+- `what went wrong challenger shuttle` -> (no suggestions)
+- `challenger shuttle explained` -> challenger explosion explained / space shuttle explained / challenger shuttle / challenger shuttle audio / challenger space shuttle video / challenger shuttle crew
+- `challenger shuttle documentary` -> challenger shuttle documentary / space shuttle documentary / space shuttle documentary 1994 / space shuttle documentary national geographic / challenger space shuttle documentary / challenger shuttle disaster documentary / challenger disaster documentary / challenger shuttle disaster
+- `challenger shuttle engineering` -> space shuttle engineering / space shuttle engineering camera / challenger shuttle launch / challenger space shuttle footage / challenger shuttle footage / challenger space shuttle video
+- `challenger shuttle animation` -> challenger explosion animation / space shuttle animation / challenger space shuttle crash / challenger space shuttle / challenger space shuttle video
+- `challenger shuttle what if` -> challenger space shuttle crash / challenger explosion astronauts alive / challenger shuttle crash
+- `challenger shuttle did you know` -> challenger space shuttle audio / challenger space shuttle crew / challenger space shuttle 1986 / challenger space shuttle video
+
+## Northeast blackout 2003
+
+- `why did 2003 northeast blackout` -> what caused the 2003 blackout / what really happened during the 2003 blackout
+- `why was 2003 northeast blackout` -> 2003 northeast blackout / what really happened during the 2003 blackout
+- `how did 2003 northeast blackout` -> what caused the 2003 blackout / what really happened during the 2003 blackout
+- `what happened 2003 northeast blackout` -> what really happened during the 2003 blackout
+- `what caused 2003 northeast blackout` -> what caused the 2003 blackout / what really happened during the 2003 blackout
+- `what went wrong 2003 northeast blackout` -> what caused the 2003 blackout
+- `2003 northeast blackout explained` -> 2003 northeast blackout / 2003 blackout documentary / what really happened during the 2003 blackout
+- `2003 northeast blackout documentary` -> northeast blackout of 2003 documentary
+- `2003 northeast blackout engineering` -> 2003 northeast blackout
+- `2003 northeast blackout animation` -> 2003 northeast blackout
+- `2003 northeast blackout what if` -> 2003 northeast blackout
+- `2003 northeast blackout did you know` -> 2003 northeast blackout
+
+## Galaxy Note 7 2016
+
+- `why did galaxy note 7` -> why did the galaxy note 7 explode / why did the samsung note 7 explode
+- `why was galaxy note 7` -> why samsung note 7 explode / why did the galaxy note 7 explode
+- `how did galaxy note 7` -> (no suggestions)
+- `what happened galaxy note 7` -> what happened to galaxy note 7
+- `what caused galaxy note 7` -> (no suggestions)
+- `what went wrong galaxy note 7` -> (no suggestions)
+- `galaxy note 7 explained` -> (no suggestions)
+- `galaxy note 7 documentary` -> (no suggestions)
+- `galaxy note 7 engineering` -> (no suggestions)
+- `galaxy note 7 animation` -> samsung galaxy note 7 boot animation / galaxy note 7 ad / galaxy note 7 memes / galaxy note 7 commercial
+- `galaxy note 7 what if` -> (no suggestions)
+- `galaxy note 7 did you know` -> (no suggestions)
+
+## Quebec Bridge 1907
+
+- `why did quebec bridge` -> the quebec bridge collapse / quebec bridge disaster / quebec bridge
+- `why was quebec bridge` -> the quebec bridge collapse / quebec bridge disaster / quebec bridge disaster 1907
+- `how did quebec bridge` -> the quebec bridge collapse / quebec bridge disaster / quebec bridge / quebec bridge disaster 1907
+- `what happened quebec bridge` -> the quebec bridge collapse / quebec bridge disaster
+- `what caused quebec bridge` -> quebec bridge disaster / the quebec bridge collapse / quebec bridge disaster 1907
+- `what went wrong quebec bridge` -> the quebec bridge collapse / quebec bridge disaster
+- `quebec bridge explained` -> quebec bridge
+- `quebec bridge documentary` -> quebec bridge disaster / quebec bridge collapse / quebec bridge / quebec bridge disaster 1907
+- `quebec bridge engineering` -> (no suggestions)
+- `quebec bridge animation` -> quebec bridge / quebec bridge disaster / quebec bridge collapse
+- `quebec bridge what if` -> quebec bridge / quebec bridge disaster / quebec bridge disaster 1907
+- `quebec bridge did you know` -> quebec bridge
+
+## Big Dig ceiling 2006
+
+- `why did big dig ceiling collapse` -> big dig ceiling collapse
+- `why was big dig ceiling collapse` -> big dig ceiling collapse
+- `how did big dig ceiling collapse` -> big dig ceiling collapse
+- `what happened big dig ceiling collapse` -> big dig ceiling collapse / ceiling collapse caught on camera
+- `what caused big dig ceiling collapse` -> big dig ceiling collapse / ceiling collapse caught on camera
+- `what went wrong big dig ceiling collapse` -> big dig ceiling collapse
+- `big dig ceiling collapse explained` -> big dig ceiling collapse
+- `big dig ceiling collapse documentary` -> big dig ceiling collapse
+- `big dig ceiling collapse engineering` -> big dig ceiling collapse
+- `big dig ceiling collapse animation` -> big dig ceiling collapse
+- `big dig ceiling collapse what if` -> big dig ceiling collapse
+- `big dig ceiling collapse did you know` -> big dig ceiling collapse
+
+## Hyatt Regency 1981
+
+- `why did hyatt regency walkway` -> the hyatt regency walkway collapse / hyatt regency walkway disaster
+- `why was hyatt regency walkway` -> the hyatt regency walkway collapse / hyatt regency walkway disaster
+- `how did hyatt regency walkway` -> hyatt regency walkway disaster / the hyatt regency walkway collapse / hyatt regency walkway
+- `what happened hyatt regency walkway` -> hyatt regency walkway disaster / the hyatt regency walkway collapse
+- `what caused hyatt regency walkway` -> hyatt regency walkway disaster / the hyatt regency walkway collapse
+- `what went wrong hyatt regency walkway` -> hyatt regency walkway disaster / the hyatt regency walkway collapse
+- `hyatt regency walkway explained` -> hyatt regency walkway / hyatt regency walkway disaster / hyatt regency walkway collapse / hyatt walkway collapse
+- `hyatt regency walkway documentary` -> hyatt regency walkway disaster / hyatt regency walkway / hyatt regency walkway collapse / hyatt walkway collapse
+- `hyatt regency walkway engineering` -> hyatt walkway collapse / hyatt walkway collapse video / hyatt regency walkway / hyatt regency walkway disaster
+- `hyatt regency walkway animation` -> hyatt regency walkway collapse animation / hyatt regency walkway disaster / hyatt regency walkway collapse / hyatt regency walkway / hyatt walkway collapse
+- `hyatt regency walkway what if` -> hyatt regency walkway disaster / hyatt regency walkway / hyatt walkway collapse video / hyatt regency hotel walkway collapse
+- `hyatt regency walkway did you know` -> hyatt regency walkway disaster / hyatt regency hotel walkway collapse / hyatt regency walkway collapse
+
+## Piper Alpha 1988
+
+- `why did piper alpha` -> (no suggestions)
+- `why was piper alpha` -> what caused the piper alpha disaster / piper alpha explained / piper alpha cause
+- `how did piper alpha` -> (no suggestions)
+- `what happened piper alpha` -> piper alpha what happened / what caused the piper alpha disaster
+- `what caused piper alpha` -> what caused the piper alpha disaster / what caused the bp oil spill
+- `what went wrong piper alpha` -> what caused the piper alpha disaster / wtyp piper alpha / the piper alpha disaster
+- `piper alpha explained` -> piper alpha explained / piper alpha / piper alpha documentary
+- `piper alpha documentary` -> piper alpha documentary / piper alpha disaster documentary / piper alpha documentary bbc / piper alpha / piper alpha explosion / piper alpha explained
+- `piper alpha engineering` -> piper alpha cause / piper alpha / piper alpha csb
+- `piper alpha animation` -> piper alpha animation / piper alpha oil rig disaster animation / piper alpha / piper alpha 1988
+- `piper alpha what if` -> piper alpha what happened / piper alpha explained / piper alpha cause
+- `piper alpha did you know` -> piper alpha cause / piper alpha wreck / piper alpha / piper alpha disaster video
+
+## Flixborough 1974
+
+- `why did flixborough` -> (no suggestions)
+- `why was flixborough` -> flood outbreak on earth
+- `how did flixborough` -> disaster caused by flood / flood outbreak on earth
+- `what happened flixborough` -> disaster caused by flood / flood outbreak on earth
+- `what caused flixborough` -> causes and effects of floods / what causes a drought
+- `what went wrong flixborough` -> what went wrong deepwater horizon / what went wrong blink
+- `flixborough explained` -> flixborough disaster / flixborough / flixborough disaster 1974 / flixborough disaster 1974 animation / flixborough disaster 1974 documentary
+- `flixborough documentary` -> flixborough disaster 1974 documentary / flixborough disaster / flixborough disaster 1974 / flixborough / flixborough disaster 1974 animation
+- `flixborough engineering` -> flixborough / flixborough disaster / flixborough csb / flixborough disaster 1974 csb / flixborough explosion
+- `flixborough animation` -> flixborough disaster 1974 animation / flixborough disaster / flixborough / flixborough disaster 1974 / flixborough disaster 1974 documentary
+- `flixborough what if` -> flixborough disaster 1974 case study / flixborough disaster 1974 documentary
+- `flixborough did you know` -> flixborough disaster 1974 case study
