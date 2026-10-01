@@ -20,13 +20,14 @@
 - Evidence grades: [A] official documentation, peer-reviewed study or large dataset; [B] first-hand creator or company data, a correlational dataset, or a measurement by one of the research agents; [C] opinion, vendor blog or inference. UNVERIFIED means the agent could not confirm it. A statement in Parts C or D without its own grade takes the grade of its row or section.
 - "Hypothesis" means an untested idea. All ten thumbnail styles are hypotheses.
 - In Parts C and D the author writes "I" (the research lead, an AI assistant) and "you" (the channel owner). "Your brief" is the channel brief in R1.
-- IDs: A1 to A6 (core card); B1 to B6 (synthesis chapters, sections such as B2.1); C1 to C12 (sections of the styles report); D1 to D8 (research reports); F1 to F3 (data); R1 to R3 (reference: the channel brief, file map, glossary). "Style N" (N = 1 to 10) is a thumbnail style in C5.
+- IDs: A1 to A6 (core card; the task recipes inside A6 are T1 to T7); B1 to B6 (synthesis chapters, sections such as B2.1); C1 to C12 (sections of the styles report); D1 to D8 (research reports); F1 to F3 (data); R1 to R3 (reference: the channel brief, file map, glossary). "Style N" (N = 1 to 10) is a thumbnail style in C5.
 - Paths in backticks (for example `research/platform.md`, `thumbnails/01-tiny-under-the-giant.png`) are files in the repository folder stress-riser/. They are not included here. The ten mockup images are not included; each style's "Example" line describes its picture in words.
+- The primary reports named in the text (NBS, NTSB, WSDOT, HSE, Rogers Commission, Withey 1997, the Blackout Task Force report and others) are not included. Where the text says to check against them, tell the owner to do so; never fill a missing detail from memory.
 - Pixel sizes refer to a 1280x720 master unless stated. Money is in US dollars. Dates are YYYY-MM-DD. View counts are as listed by YouTube on 2026-09-30.
 
 ### 0.3 Map of this file
 
-Format: line number, heading, size in words. Lines are counted from the first line of the file; use them to jump to a section.
+Format: line number, heading, size in words. Lines are counted from the first line of the file; use them to jump to a section. The map lists parts, chapters and, for Parts B and C, their sections. Cross-references in the text use IDs: to find a heading, search for its ID at the start of a line (for example "#### B4.3") or use the line numbers below.
 
 {{MAP}}
 

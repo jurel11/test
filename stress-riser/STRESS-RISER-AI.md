@@ -10,7 +10,7 @@
 
 ### 0.1 Precedence (when sources disagree)
 
-1. The channel brief (H2, verbatim) wins over everything else.
+1. The channel brief (R1, verbatim) wins over everything else.
 2. Parts A, B, C and F are the corrected, authoritative layer (three independent reviews applied).
 3. Part D holds the eight research reports verbatim. They were written before the reviews. Where a report disagrees with Parts A, B, C or F, Parts A, B, C and F win. Known disagreements between reports are listed in B3.2.
 4. Your own background knowledge ranks last. Do not add facts about disasters, YouTube policy or study results that are not in this file; say "not in the research, verify" instead. The channel's own rule is "nothing invented, ever".
@@ -19,66 +19,107 @@
 
 - Evidence grades: [A] official documentation, peer-reviewed study or large dataset; [B] first-hand creator or company data, a correlational dataset, or a measurement by one of the research agents; [C] opinion, vendor blog or inference. UNVERIFIED means the agent could not confirm it. A statement in Parts C or D without its own grade takes the grade of its row or section.
 - "Hypothesis" means an untested idea. All ten thumbnail styles are hypotheses.
-- In Parts C and D the author writes "I" (the research lead, an AI assistant) and "you" (the channel owner). "Your brief" is the channel brief in H2.
-- IDs: A1 to A6 (core card); B1 to B6 (synthesis chapters, sections such as B2.1); C1 to C12 (sections of the styles report); D1 to D8 (research reports); F1 to F3 (data); H2 to H4 (appendices). "Style N" (N = 1 to 10) is a thumbnail style in C5.
+- In Parts C and D the author writes "I" (the research lead, an AI assistant) and "you" (the channel owner). "Your brief" is the channel brief in R1.
+- IDs: A1 to A6 (core card; the task recipes inside A6 are T1 to T7); B1 to B6 (synthesis chapters, sections such as B2.1); C1 to C12 (sections of the styles report); D1 to D8 (research reports); F1 to F3 (data); R1 to R3 (reference: the channel brief, file map, glossary). "Style N" (N = 1 to 10) is a thumbnail style in C5.
 - Paths in backticks (for example `research/platform.md`, `thumbnails/01-tiny-under-the-giant.png`) are files in the repository folder stress-riser/. They are not included here. The ten mockup images are not included; each style's "Example" line describes its picture in words.
+- The primary reports named in the text (NBS, NTSB, WSDOT, HSE, Rogers Commission, Withey 1997, the Blackout Task Force report and others) are not included. Where the text says to check against them, tell the owner to do so; never fill a missing detail from memory.
 - Pixel sizes refer to a 1280x720 master unless stated. Money is in US dollars. Dates are YYYY-MM-DD. View counts are as listed by YouTube on 2026-09-30.
 
 ### 0.3 Map of this file
 
-Format: line number, heading, size in words. Lines are counted from the first line of the file; use them to jump to a section.
+Format: line number, heading, size in words. Lines are counted from the first line of the file; use them to jump to a section. The map lists parts, chapters and, for Parts B and C, their sections. Cross-references in the text use IDs: to find a heading, search for its ID at the start of a line (for example "#### B4.3") or use the line numbers below.
 
 ```text
-L115   ## A. Core card: read this even if you read nothing else (2,711 words)
-L117     ### A1. What this is (145 words)
-L123     ### A2. Fifteen findings that matter (783 words)
-L141     ### A3. Hard rules for every thumbnail (checklist) (425 words)
-L157     ### A4. The ten styles at a glance (425 words)
-L176     ### A5. Next steps and open decisions (276 words)
-L189     ### A6. Task recipes (645 words)
-L214   ## H. Reference: the channel brief (verbatim), file map, glossary (H2 to H4) (3,317 words)
-L218     ### H2. The channel brief (verbatim; it overrides everything else) (2,449 words)
-L319     ### H3. Repository file map (316 words)
-L345     ### H4. Glossary (528 words)
-L379   ## C. The ten thumbnail styles: house system, evidence, testing playbook, fact registry (C1 to C12) (8,223 words)
-L386     ### C1. The short version (369 words)
-L395     ### C2. Hard constraints (every thumbnail must pass) (475 words)
-L407     ### C3. What the research found (condensed) (549 words)
-L429     ### C4. The house system: what never changes and what varies (631 words)
-L452     ### C5. The ten styles (3,514 words)
-L562     ### C6. Comparison and phone-size results (513 words)
-L596     ### C7. Testing playbook (539 words)
-L607     ### C8. Registry of facts used in the examples (706 words)
-L628     ### C9. Decisions I need from you (198 words)
-L635     ### C10. Shorts (156 words)
-L642     ### C11. Caveats (209 words)
-L651     ### C12. Files (94 words)
-L658   ## B. Synthesis: key numbers, myths, contradictions, recommendations, roadmap, risks (14,630 words)
-L664     ### B1. Context, constraints and method (1,660 words)
-L738     ### B2. Key numbers and facts, in one place (5,494 words)
-L940     ### B3. Myths, unsupported claims and contradictions (1,739 words)
-L1032    ### B4. All recommendations, consolidated (3,554 words)
-L1191    ### B5. Roadmap, decisions, risks and gaps (1,634 words)
-L1289    ### B6. Review status and spend (compact) (399 words)
-L1299  ## D. The eight research reports (verbatim source layer) (18,153 words)
-L1303    ### D1. Platform mechanics, specs, policies and testing (2,614 words)
-L1473    ### D2. Empirical evidence on what gets thumbnails clicked (2,246 words)
-L1632    ### D3. Psychology and visual perception of clicking (1,837 words)
-L1726    ### D4. Audit of the engineering-disaster and documentary niche (2,075 words)
-L1845    ### D5. Audit of cartoon and stick-figure explainer channels (2,004 words)
-L1997    ### D6. Design system, color math and production workflow (2,544 words)
-L2185    ### D7. From story to thumbnail moment (fact-checked) (2,210 words)
-L2338    ### D8. Packaging, title-thumbnail pairing, testing and Shorts (2,559 words)
-L2484  ## F. Data tables: palette math, fonts, legibility experiments (F1 to F3) (3,042 words)
-L2488    ### F1. Palette pairs and single-color values (1,598 words)
-L2557    ### F2. Font measurements (624 words)
-L2592    ### F3. Legibility, saliency and color-blindness experiments (789 words)
-L2718  ## Z. Final reminders (248 words)
+L156   ## A. Core card: read this even if you read nothing else (2,717 words)
+L158     ### A1. What this is (145 words)
+L164     ### A2. Fifteen findings that matter (783 words)
+L182     ### A3. Hard rules for every thumbnail (checklist) (425 words)
+L198     ### A4. The ten styles at a glance (431 words)
+L217     ### A5. Next steps and open decisions (276 words)
+L230     ### A6. Task recipes (645 words)
+L255   ## R. Reference: the channel brief (verbatim), file map, glossary (R1 to R3) (3,306 words)
+L257     ### R1. The channel brief (verbatim; it overrides everything else) (2,449 words)
+L358     ### R2. Repository file map (316 words)
+L384     ### R3. Glossary (528 words)
+L418   ## C. The ten thumbnail styles: house system, evidence, testing playbook, fact registry (C1 to C12) (8,244 words)
+L425     ### C1. The short version (369 words)
+L434     ### C2. Hard constraints (every thumbnail must pass) (475 words)
+L446     ### C3. What the research found (condensed) (549 words)
+L468     ### C4. The house system: what never changes and what varies (631 words)
+L491     ### C5. The ten styles (3,514 words)
+L501       #### Style 1 — Tiny Under the Giant (324 words)
+L511       #### Style 2 — The Moment Before (327 words)
+L521       #### Style 3 — The Impossible Scene (331 words)
+L531       #### Style 4 — Exhibit A (316 words)
+L541       #### Style 5 — The Cutaway (288 words)
+L551       #### Style 6 — The Giant Number (352 words)
+L561       #### Style 7 — The Odd True Detail (299 words)
+L571       #### Style 8 — The Crowd on the Shore (280 words)
+L581       #### Style 9 — Seat of the Decider (331 words)
+L591       #### Style 10 — Close-Up Gaze (384 words)
+L601     ### C6. Comparison and phone-size results (534 words)
+L635     ### C7. Testing playbook (539 words)
+L646     ### C8. Registry of facts used in the examples (706 words)
+L667     ### C9. Decisions I need from you (198 words)
+L674     ### C10. Shorts (156 words)
+L681     ### C11. Caveats (209 words)
+L690     ### C12. Files (94 words)
+L697   ## B. Synthesis: key numbers, myths, contradictions, recommendations, roadmap, risks (14,719 words)
+L703     ### B1. Context, constraints and method (1,660 words)
+L705       #### B1.1 The question (113 words)
+L709       #### B1.2 What in the brief shaped the thumbnails (367 words)
+L726       #### B1.3 Observations about the brief itself (350 words)
+L739       #### B1.4 Method (661 words)
+L766       #### B1.5 Access limits (what could not be read) (163 words)
+L777     ### B2. Key numbers and facts, in one place (5,566 words)
+L781       #### B2.1 Platform: specs, display, measurement, testing, policy (1,207 words)
+L823       #### B2.2 CTR evidence: datasets, company data and creator experiments (712 words)
+L847       #### B2.3 Psychology and perception: findings and principles (819 words)
+L885       #### B2.4 Audits of real thumbnails: what the data show (856 words)
+L919       #### B2.5 Design system numbers (592 words)
+L940       #### B2.6 Packaging, testing, cold start, Shorts (372 words)
+L956       #### B2.7 The twelve candidate stories (fact base) (926 words)
+L979     ### B3. Myths, unsupported claims and contradictions (1,739 words)
+L981       #### B3.1 Consolidated list of myths and unsupported claims (996 words)
+L1040      #### B3.2 Contradictions between sources, and how they were resolved (736 words)
+L1071    ### B4. All recommendations, consolidated (3,575 words)
+L1075      #### B4.1 Ten strategic principles (459 words)
+L1088      #### B4.2 Which style, when (233 words)
+L1097      #### B4.3 The house system (734 words)
+L1136      #### B4.4 Text overlay specification (383 words)
+L1148      #### B4.5 Image-generation and production workflow (404 words)
+L1169      #### B4.6 Testing program (305 words)
+L1181      #### B4.7 Title and thumbnail pairing (337 words)
+L1189      #### B4.8 Shorts (114 words)
+L1196      #### B4.9 Compliance and ethics (203 words)
+L1205      #### B4.10 Fact discipline for thumbnail content (106 words)
+L1212      #### B4.11 The do-not list (250 words)
+L1230    ### B5. Roadmap, decisions, risks and gaps (1,630 words)
+L1232      #### B5.1 Roadmap (683 words)
+L1273      #### B5.2 Log template (144 words)
+L1290      #### B5.3 Decisions needed from the owner (220 words)
+L1299      #### B5.4 Risks and open questions (424 words)
+L1318      #### B5.5 What the research did not cover (candidate future research) (152 words)
+L1328    ### B6. Review status and spend (compact) (399 words)
+L1338  ## D. The eight research reports (verbatim source layer) (18,243 words)
+L1348    ### D1. Platform mechanics, specs, policies and testing (2,614 words)
+L1518    ### D2. Empirical evidence on what gets thumbnails clicked (2,246 words)
+L1677    ### D3. Psychology and visual perception of clicking (1,837 words)
+L1771    ### D4. Audit of the engineering-disaster and documentary niche (2,075 words)
+L1890    ### D5. Audit of cartoon and stick-figure explainer channels (2,004 words)
+L2042    ### D6. Design system, color math and production workflow (2,544 words)
+L2230    ### D7. From story to thumbnail moment (fact-checked) (2,210 words)
+L2383    ### D8. Packaging, title-thumbnail pairing, testing and Shorts (2,559 words)
+L2529  ## F. Data tables: palette math, fonts, legibility experiments (F1 to F3) (3,042 words)
+L2533    ### F1. Palette pairs and single-color values (1,598 words)
+L2602    ### F2. Font measurements (624 words)
+L2637    ### F3. Legibility, saliency and color-blindness experiments (789 words)
+L2763  ## Z. Final reminders (248 words)
 ```
 
 ### 0.4 Not included in this edition
 
-All of these exist in the repository (folder stress-riser/) and in the full HTML dossier. References to them in the text (for example "G8", "E1", "F4") point there.
+All of these exist in the repository (folder stress-riser/) and in the full HTML dossier. References to them in the text (for example "G8", "E1", "F4", "H1") point there.
 
 | ID | What it is | Where |
 |---|---|---|
@@ -86,7 +127,7 @@ All of these exist in the repository (folder stress-riser/) and in the full HTML
 | F4, F5 | video indexes (405 niche rows, 462 cartoon rows: video ID, title, channel, views, group) | `data/niche-video-index.csv`, `data/cartoon-video-index.csv` |
 | F6 | phone-size QA sheet and mockup measurements | `thumbnails/qa-phone-sizes.png` |
 | G1 to G10 | raw working notes of the eight agents (G3 to G10) and the exact prompts the agents received (G2) | `research/*.md`, `master/G2-research-briefs.md` |
-| H1 | consolidated list of all 193 cited sources | `STRESS-RISER-MASTER.html` (each report in Part D also ends with its own sources) |
+| H1 (HTML dossier) | consolidated list of all 193 cited sources | `STRESS-RISER-MASTER.html` (each report in Part D also ends with its own sources) |
 | images | ten mockups, art-only layers, editable SVG sources, gallery | `thumbnails/`, `thumbnail-lookbook.html` |
 | Slovenian summary | summary for the owner | `master/A-summary-sl.md` (replaced here by the English core card A) |
 
@@ -118,7 +159,7 @@ All of these exist in the repository (folder stress-riser/) and in the full HTML
 
 The channel owner asked for 10 different thumbnail styles and approaches that suit the channel's videos, work well and have a high click-through rate (CTR). The answer is ten distinct, brief-compliant concepts (Part C, section C5) built on one house system (C4), plus a test program (C7, B4.6) to find out which ones work, because no public evidence says in advance which thumbnail features raise CTR on YouTube.
 
-The channel (from the brief, H2): documentary-style stories of engineering disasters and failed inventions, told as a chain of small, reasonable decisions; English voiceover; hand-drawn stick-figure animation. Audience: curious adults 18 to 50 in the US, UK, Canada and Australia, watching on phones and arriving from the home feed on a question title and a thumbnail. Titles are always questions. Long videos run 8 to 12 minutes, Shorts 45 to 60 seconds.
+The channel (from the brief, R1): documentary-style stories of engineering disasters and failed inventions, told as a chain of small, reasonable decisions; English voiceover; hand-drawn stick-figure animation. Audience: curious adults 18 to 50 in the US, UK, Canada and Australia, watching on phones and arriving from the home feed on a question title and a thumbnail. Titles are always questions. Long videos run 8 to 12 minutes, Shorts 45 to 60 seconds.
 
 ### A2. Fifteen findings that matter
 
@@ -171,7 +212,7 @@ Details, image prompts, layouts and watch-outs are in C5. Slots and cousins are 
 | 9 | Seat of the Decider | human | 2003 Blackout; LAST ALARM / 2:14 PM | a decision room | words carry it; scene small | 2, 8 |
 | 10 | Close-Up Gaze | human | Flixborough 1974; NO DRAWING | one visible defect (fits almost any story) | strongest; survives blur | none |
 
-Rule for tests: one human style (10, 7 or 9), one mechanism style (4 or 5; Style 6 can replace it when the story has a surprising number) and one scale or scene style (1, 2, 3 or 8), never two close cousins together (1 and 8; 4 and 5; 2, 8 and 9). When unsure, use Styles 10, 2 and 1.
+Rule for tests: one human style (10, 7 or 9), one mechanism style (4 or 5; Style 6 can replace it when the story has a surprising number) and one scale or scene style (1, 2, 3 or 8), never two close cousins together. Forbidden pairs in one test: 1+8, 4+5, 2+8, 2+9 and 8+9; every other pair is allowed. When unsure, use Styles 10, 2 and 1.
 
 ### A5. Next steps and open decisions
 
@@ -188,7 +229,7 @@ Decisions needed from the owner (B5.3):
 
 ### A6. Task recipes
 
-**R1. Thumbnail concepts for a new video**
+**T1. Thumbnail concepts for a new video**
 
 1. Confirm the story is usable: not an ongoing legal case, at least two years old on the publication date, no terrorism, no medical or financial advice, politics only as regulatory facts (B1.2). Use only facts from the primary report and mark anything uncertain (B4.10). Compare with the registry (B2.7, C8).
 2. Write one line for the outcome and the human-stakes number. Pick one documented odd detail, one surprising non-casualty number if there is one, and one object to plant in the opening and bring back at the end.
@@ -199,23 +240,21 @@ Decisions needed from the owner (B5.3):
 
 Suggested output: one table with the columns variant, style, overlay words, image prompt, risk, facts to verify.
 
-**R2. Write an image-generation prompt.** Structure: scene, subject, details, constraints (B4.5, step 3). Describe what is there in positive terms ("a blank plain board", "a gauge with a needle and no marks"), because image models often ignore "no text". Attach the character sheet and append the master prompt block (C5). Leave a calm area for the words. After generation zoom to 100% and look for stray letters, numbers, hands, shoes and thick limbs; fix with a masked edit or paint over; add the words as a separate live text layer (B4.4); export sRGB, 16:9, under 2 MB (B4.5, step 7).
+**T2. Write an image-generation prompt.** Structure: scene, subject, details, constraints (B4.5, step 3). Describe what is there in positive terms ("a blank plain board", "a gauge with a needle and no marks"), because image models often ignore "no text". Attach the character sheet and append the master prompt block (C5). Leave a calm area for the words. After generation zoom to 100% and look for stray letters, numbers, hands, shoes and thick limbs; fix with a masked edit or paint over; add the words as a separate live text layer (B4.4); export sRGB, 16:9, under 2 MB (B4.5, step 7).
 
-**R3. Review a finished thumbnail.** Check in this order: (1) brief rules and the do-not list (B4.11); (2) policy (B4.9); (3) palette, fail pairs, red only on the culprit (B4.3); (4) text specification (B4.4); (5) the QA list at phone size, grayscale, blur, light and dark feed (B4.5, step 8); (6) the promise: everything shown is in the video by second 15 and the facts match the registry (B4.10). Report pass or fail per item with the measured value.
+**T3. Review a finished thumbnail.** Check in this order: (1) brief rules and the do-not list (B4.11); (2) policy (B4.9); (3) palette, fail pairs, red only on the culprit (B4.3); (4) text specification (B4.4); (5) the QA list at phone size, grayscale, blur, light and dark feed (B4.5, step 8); (6) the promise: everything shown is in the video by second 15 and the facts match the registry (B4.10). Report pass or fail per item with the measured value.
 
-**R4. Plan or read an A/B test.** Rules in B4.6, mechanics in B2.1, sample sizes in B2.6, log template in B5.2. Test concepts, not tweaks; upload the preferred variant first; do not edit during a test; never judge by CTR alone; decide by the rules in B4.6 (heuristics [C]); look for patterns across 8 to 10 videos (B5.1, P3).
+**T4. Plan or read an A/B test.** Rules in B4.6, mechanics in B2.1, sample sizes in B2.6, log template in B5.2. Test concepts, not tweaks; upload the preferred variant first; do not edit during a test; never judge by CTR alone; decide by the rules in B4.6 (heuristics [C]); look for patterns across 8 to 10 videos (B5.1, P3).
 
-**R5. Use a story.** Re-check the age filter and the legal status on the publication date; use only registry facts (C8, B2.7, D7); mark contested causes (Flixborough, Tacoma) as contested and avoid a thumbnail that asserts a single cause; keep figures anonymous; never blame individuals; avoid the myths in B3.1.
+**T5. Use a story.** Re-check the age filter and the legal status on the publication date; use only registry facts (C8, B2.7, D7); mark contested causes (Flixborough, Tacoma) as contested and avoid a thumbnail that asserts a single cause; keep figures anonymous; never blame individuals; avoid the myths in B3.1.
 
-**R6. A Short's first frame.** Frame 0 to 1 s: the outcome image plus a 3 to 6 word line; keep important content inside a central 2:3 crop; Shorts never carry an ask (brief); a custom cover is optional (B4.8, C10).
+**T6. A Short's first frame.** Frame 0 to 1 s: the outcome image plus a 3 to 6 word line; keep important content inside a central 2:3 crop; Shorts never carry an ask (brief); a custom cover is optional (B4.8, C10).
 
-**R7. Answer an evidence question.** Give the grade; say "no controlled study found" instead of implying causation; use B3.1 for "is it true that...?" questions; do not repeat statistics that B3.1 lists as untraceable.
+**T7. Answer an evidence question.** Give the grade; say "no controlled study found" instead of implying causation; use B3.1 for "is it true that...?" questions; do not repeat statistics that B3.1 lists as untraceable.
 
-## H. Reference: the channel brief (verbatim), file map, glossary (H2 to H4)
+## R. Reference: the channel brief (verbatim), file map, glossary (R1 to R3)
 
-H1 (consolidated source list) is not in this edition (see 0.4).
-
-### H2. The channel brief (verbatim; it overrides everything else)
+### R1. The channel brief (verbatim; it overrides everything else)
 
 The standing brief for every script, title, description, scene list and image prompt made for the Stress Riser channel. The user pasted it on 2026-09-30. The wording below is theirs; only headings, line breaks and list markers were added. Notes such as "(user, 2026-09-24)" mark rules the user set explicitly.
 
@@ -316,7 +355,7 @@ Curious adults 18–50 in the US, UK, Canada and Australia who watch explainer v
 
 **The video description must always include:** Sources are listed below. This video uses AI-assisted narration and animation; the research, script editing and analysis are done by a human.
 
-### H3. Repository file map
+### R2. Repository file map
 
 Everything is in the repository `jurel11/test`, branch `claude/stress-riser-channel-o2tnfv`, folder `stress-riser/`. The `isotrack-*.html` files in the repository root are unrelated to the channel.
 
@@ -342,7 +381,7 @@ Preview tool usage: `python3 tools/thumb_preview.py image.png --title "..." --du
 
 Rebuilding this file: `python3 tools/build_ai.py` (Python 3 only, no packages needed).
 
-### H4. Glossary
+### R3. Glossary
 
 | Term | Meaning |
 |---|---|
@@ -576,7 +615,7 @@ Files: `thumbnails/NN-*.png` (final composite), `thumbnails/art-only/NN-*-art.pn
 | 9 | Seat of the Decider | 2 | words carry it; scene is small | medium | timeline; small scene |
 | 10 | Close-Up Gaze | 2 | **strongest**; survives blur | **high** | dot-eye fear untested |
 
-**Which styles are close cousins** (do not put them in the same test): 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene plus a hidden cause). **Suggested test trios:** one *human* style (10, 7 or 9), one *mechanism* style (4 or 5) and one *scale/scene* style (1, 2, 3 or 8), never two cousins together (9 goes with 1 or 3, not with 2 or 8). Alternate background families across consecutive videos.
+**Which styles are close cousins** (do not put them in the same test): 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene plus a hidden cause). As pairs, these must not appear together in one test: 1+8, 4+5, 2+8, 2+9 and 8+9; every other pair is allowed. **Suggested test trios:** one *human* style (10, 7 or 9), one *mechanism* style (4 or 5) and one *scale/scene* style (1, 2, 3 or 8), never two cousins together (9 goes with 1 or 3, not with 2 or 8). Alternate background families across consecutive videos.
 
 **Style × story type** (my judgment, not tested):
 
@@ -918,20 +957,20 @@ Most rows say what was measured, the grade and where to read more (a chapter in 
 
 All twelve pass the age filter as of 2026-09-30 (nothing after 2024-09-30; no terrorism; no medical advice; politics only as regulatory facts). Legal status is **not fully verified** (D7): litigation for Challenger, criminal status for Piper Alpha and the class action for Note 7 are marked UNVERIFIED, and the follow-up settlements for Hyatt and Big Dig and legal follow-ups for the Blackout were not checked. Check each story again before choosing it. Full facts, quotes and sources are in D7 and G8. Ranked by thumbnail strength by the story-research agent (its judgment, not a test).
 
-| Rank | Story | Headline facts | Thumbnail moment | Planted object |
-|---|---|---|---|---|
-| 1 | Comet, 1954 | 35 died 10 Jan (Elba), 21 died 8 Apr (Naples); whole fuselage tested in a water tank; failure after 3,057 cycles (1,221 real plus 1,836 simulated; another source 3,060); about 70% of the Elba wreck recovered | the whole fuselage in a purpose-built tank, wings out through seals, "flown" in about 5 minutes per simulated flight | a bolt hole |
-| 2 | Tacoma Narrows, 1940 | opened 1 July, fell 7 Nov; wind 42 mph measured 09:30; twisting began 10:03; roadway tilted up to 28 ft each side; a 600-ft section fell 11:02; cause "remains a mystery", torsional flutter primary explanation | the tilted roadway; lemon-chewing workmen | a lemon |
-| 3 | Vajont, 1963 | 1,917 dead (Italian Civil Protection; counts 1,919–2,056); about 260 million m³ slide; wave about 250 m over the crest; 262 m dam stood; criminal case closed 1971; final civil settlement 23 June 1999 | dam intact with a wave over it; at noon workers saw the mountain moving; at 13:00 a 50 cm crack | gravel-on-a-plank model |
-| 4 | Vasa, 1628 | sank after about 1,300 m; about 30 died; a stability test with 30 men stopped after three trips; four rulers found (two Swedish feet, two Amsterdam feet); raised 1961 | huge ship with open gunports, a crowd on the shore (the story agent suggested a heeling ship; the mockup draws it upright) | a wooden ruler |
-| 5 | Challenger, 1986 | 11:38 liftoff, breakup at 73 s; air temperature 36°F, 15°F colder than any earlier launch; Thiokol's engineers advised against launching below 53°F; foot-long icicles; Feynman's ice-water demonstration 11 Feb 1986 | a glass of ice water and a clamped rubber ring | the O-ring |
-| 6 | 2003 Blackout | about 50 million people; 61,800 MW; alarm and logging software failed shortly after 14:14 EDT; trees tripped lines from about 15:05 | a frozen screen and a sagging line near a tree | the frozen screen |
-| 7 | Samsung Galaxy Note 7, 2016 | discontinued 10 Oct 2016; FAA and PHMSA flight ban 14 Oct; two different defects (original and replacement); lost revenue estimate $17bn or more [C] | the replacement phone failing again | the phone |
-| 8 | Quebec Bridge, 1907 | 75 of 86 workers died, 33 of them Mohawk ironworkers; about 15 seconds; span 549 m; bent chords noticed for weeks; second collapse 1916 (13 died) [C] | a visibly bowed chord while work continued | the bowed chord |
-| 9 | Big Dig ceiling, 2006 | 10 July 11:01 pm; about 26 tons fell; 1 death; epoxy with poor creep resistance; anchor movement seen in 1999 | a bolt sliding out of a glued hole over years | an epoxy anchor |
-| 10 | Hyatt Regency, 1981 | 17 July about 7:05 pm; 113 dead, 186 injured (NBS; others 114/216); the as-built change "essentially doubled" the load; at collapse 31% of code capacity; even the original design about 60% | one long rod vs two rods through a box beam | the nut and washer |
-| 11 | Piper Alpha, 1988 | 226 aboard, 167 dead including 2 rescuers, 61 survived; pump's safety valve removed and a blind flange "hand-tightened only"; permits in different boxes; fire pumps on manual since 19:00 [C] | a steel disc fitted out of sight, two paper permits | the blind flange |
-| 12 | Flixborough, 1974 | 1 June 16:53; 28 killed, 36 injured on site, 53 off site; a 20-inch bypass after reactor 5 cracked 27 March; no drawing, no calculations for the dog-leg or bellows, no pressure test; cause of failure contested | a dog-legged pipe with bellows and a gap where reactor 5 had been | the bellows |
+| Rank | Story | Headline facts | Thumbnail moment | Planted object | Filter result (D7) |
+|---|---|---|---|---|---|
+| 1 | Comet, 1954 | 35 died 10 Jan (Elba), 21 died 8 Apr (Naples); whole fuselage tested in a water tank; failure after 3,057 cycles (1,221 real plus 1,836 simulated; another source 3,060); about 70% of the Elba wreck recovered | the whole fuselage in a purpose-built tank, wings out through seals, "flown" in about 5 minutes per simulated flight | a bolt hole | pass |
+| 2 | Tacoma Narrows, 1940 | opened 1 July, fell 7 Nov; wind 42 mph measured 09:30; twisting began 10:03; roadway tilted up to 28 ft each side; a 600-ft section fell 11:02; cause "remains a mystery", torsional flutter primary explanation | the tilted roadway; lemon-chewing workmen | a lemon | pass; insurance settled 1941 |
+| 3 | Vajont, 1963 | 1,917 dead (Italian Civil Protection; counts 1,919–2,056); about 260 million m³ slide; wave about 250 m over the crest; 262 m dam stood; criminal case closed 1971; final civil settlement 23 June 1999 | dam intact with a wave over it; at noon workers saw the mountain moving; at 13:00 a 50 cm crack | gravel-on-a-plank model | pass; criminal case closed 1971; civil settlement 23 June 1999 |
+| 4 | Vasa, 1628 | sank after about 1,300 m; about 30 died; a stability test with 30 men stopped after three trips; four rulers found (two Swedish feet, two Amsterdam feet); raised 1961 | huge ship with open gunports, a crowd on the shore (the story agent suggested a heeling ship; the mockup draws it upright) | a wooden ruler | pass |
+| 5 | Challenger, 1986 | 11:38 liftoff, breakup at 73 s; air temperature 36°F, 15°F colder than any earlier launch; Thiokol's engineers advised against launching below 53°F; foot-long icicles; Feynman's ice-water demonstration 11 Feb 1986 | a glass of ice water and a clamped rubber ring | the O-ring | pass; litigation status UNVERIFIED (40 years old) |
+| 6 | 2003 Blackout | about 50 million people; 61,800 MW; alarm and logging software failed shortly after 14:14 EDT; trees tripped lines from about 15:05 | a frozen screen and a sagging line near a tree | the frozen screen | pass; legal follow-ups not verified |
+| 7 | Samsung Galaxy Note 7, 2016 | discontinued 10 Oct 2016; FAA and PHMSA flight ban 14 Oct; two different defects (original and replacement); lost revenue estimate $17bn or more [C] | the replacement phone failing again | the phone | pass; class-action status UNVERIFIED |
+| 8 | Quebec Bridge, 1907 | 75 of 86 workers died, 33 of them Mohawk ironworkers; about 15 seconds; span 549 m; bent chords noticed for weeks; second collapse 1916 (13 died) [C] | a visibly bowed chord while work continued | the bowed chord | pass |
+| 9 | Big Dig ceiling, 2006 | 10 July 11:01 pm; about 26 tons fell; 1 death; epoxy with poor creep resistance; anchor movement seen in 1999 | a bolt sliding out of a glued hole over years | an epoxy anchor | pass on age; 2008 settlements UNVERIFIED |
+| 10 | Hyatt Regency, 1981 | 17 July about 7:05 pm; 113 dead, 186 injured (NBS; others 114/216); the as-built change "essentially doubled" the load; at collapse 31% of code capacity; even the original design about 60% | one long rod vs two rods through a box beam | the nut and washer | pass; Missouri board ruling 1985, upheld 1988; settlements UNVERIFIED |
+| 11 | Piper Alpha, 1988 | 226 aboard, 167 dead including 2 rescuers, 61 survived; pump's safety valve removed and a blind flange "hand-tightened only"; permits in different boxes; fire pumps on manual since 19:00 [C] | a steel disc fitted out of sight, two paper permits | the blind flange | pass; civil trial 1997; criminal status UNVERIFIED |
+| 12 | Flixborough, 1974 | 1 June 16:53; 28 killed, 36 injured on site, 53 off site; a 20-inch bypass after reactor 5 cracked 27 March; no drawing, no calculations for the dog-leg or bellows, no pressure test; cause of failure contested | a dog-legged pipe with bellows and a gap where reactor 5 had been | the bellows | pass |
 
 **Dropped by the legal filter:** Morandi Bridge (verdict 16 July 2026, appeal announced), Boeing 737 MAX (civil trials continue, a jury verdict May 2026), Grenfell (charging decisions pending, trials 2029 or later). **Borderline, not used:** Lac-Mégantic. **Not verified in this pass (reserves):** Chernobyl, Three Mile Island, Apollo 13, Columbia, Mars Climate Orbiter, Millennium Bridge, St. Francis Dam, Sleipner A, Ronan Point, Tay Bridge, Kaprun, Sampoong, Banqiao, Therac-25, and the Titan submersible and Baltimore Key Bridge (not checked).
 
@@ -1050,7 +1089,7 @@ Priorities: **P1** do before the first upload; **P2** do for every video; **P3**
 
 - **Starter trio for almost any story:** Style 10 (Close-Up Gaze), Style 2 (The Moment Before), Style 1 (Tiny Under the Giant).
 - **Conditional on the story:** Style 3 (needs a true odd image), Style 6 (needs a good non-casualty number), Style 7 (needs an odd, documented detail), Style 8 (needs a visible flaw and a crowd), Style 9 (needs a decision room), Style 4 and 5 (a small part or hidden mechanism).
-- **Close cousins: never put in the same test:** 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene with a hidden cause; the design review counts them as one idea).
+- **Close cousins: never put in the same test:** 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene with a hidden cause; the design review counts them as one idea). As pairs, these must not appear together in one test: 1+8, 4+5, 2+8, 2+9 and 8+9; every other pair is allowed.
 - **Suggested test trio:** one *human* style (10, 7 or 9), one *mechanism* style (4 or 5), one *scale or scene* style (1, 2, 3 or 8), never two cousins together (so 9 goes with 1 or 3, not with 2 or 8). Alternate background families between consecutive videos.
 - **Strongest at phone size in the check:** Styles 6 and 10. For Styles 7, 8 and 9 the words carry the thumbnail; props and small details vanish at 168 px.
 - The style × story matrix is in section C6.
@@ -1212,7 +1251,7 @@ Priorities: **P1** do before the first upload; **P2** do for every video; **P3**
 7. *Log* every video (template in B5.2).
 8. *Shorts:* frame 0 to 1 s is the outcome image plus a 3–6 word line; the same frame can be the custom cover.
 
-**First 10 videos: a suggested rotation.** Each test has one human, one mechanism and one scale-or-scene variant, never close cousins together (slots as defined in B4.2; the cousins are 1 and 8, 4 and 5, and 2, 8 and 9); adapt to what fits each story (swap Style 6 in for a mechanism slot when the story has a surprising number).
+**First 10 videos: a suggested rotation.** Each test has one human, one mechanism and one scale-or-scene variant, never close cousins together (slots as defined in B4.2; the forbidden pairs are 1+8, 4+5, 2+8, 2+9 and 8+9); adapt to what fits each story (swap Style 6 in for a mechanism slot when the story has a surprising number).
 
 | Video | Human variant | Mechanism variant | Scale or scene variant |
 |---|---|---|---|
@@ -1299,6 +1338,12 @@ Three independent reviewers (agents that had not written the material) audited t
 ## D. The eight research reports (verbatim source layer)
 
 These are the final reports of the eight research agents, unedited except that long scratch-folder paths were shortened. They were written before the reviews. Where they disagree with Parts A, B, C or F, those parts win (known conflicts: B3.2). Read them for detail, quotations and the source list at the end of each report.
+
+Known issues inside the reports (corrected in Parts B and C):
+
+- Ink Explainer's subscriber count: D2 and D5 also cite 77.8K ("at month 8", from a third-party case study), while D4, D5 and D8 read 106K from the channel page. Use 106K (B3.2 #22).
+- D1 lists "no company logos" among its hard constraints; that is D1's own inference from trademark enforcement, not wording from the YouTube Help page (B2.1).
+- Shorts cover minimum size: D1 says minimum height 640 px, D8 says minimum width 640 px (B3.2 #23).
 
 ### D1. Platform mechanics, specs, policies and testing
 
@@ -2719,7 +2764,7 @@ Patrick Hand,360x202,5,6,4,5,5,5,5,5,5
 
 The rules that matter most, repeated on purpose:
 
-1. The channel brief (H2) overrides everything. Nothing is invented: every number, date, name and quote must come from this file's sources or be verified; when unsure, round it, drop the number, or say "not verified".
+1. The channel brief (R1) overrides everything. Nothing is invented: every number, date, name and quote must come from this file's sources or be verified; when unsure, round it, drop the number, or say "not verified".
 2. The ten styles are hypotheses. Say so, and recommend testing concepts, never tweaks.
 3. Words are never inside a generated image; add 1 to 3 caps words as a separate text layer (pending the owner's confirmation, A5 decision 1).
 4. Ten palette colors only; ink outline; lit scenes; red marks the culprit; no arrows, dashed lines, motion lines or diagram symbols; no text, letters or numbers inside the image.

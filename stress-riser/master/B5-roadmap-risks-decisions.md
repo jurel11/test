@@ -22,7 +22,7 @@
 7. *Log* every video (template in B5.2).
 8. *Shorts:* frame 0 to 1 s is the outcome image plus a 3–6 word line; the same frame can be the custom cover.
 
-**First 10 videos: a suggested rotation.** Each test has one human, one mechanism and one scale-or-scene variant, never close cousins together (slots as defined in B4.2; the cousins are 1 and 8, 4 and 5, and 2, 8 and 9); adapt to what fits each story (swap Style 6 in for a mechanism slot when the story has a surprising number).
+**First 10 videos: a suggested rotation.** Each test has one human, one mechanism and one scale-or-scene variant, never close cousins together (slots as defined in B4.2; the forbidden pairs are 1+8, 4+5, 2+8, 2+9 and 8+9); adapt to what fits each story (swap Style 6 in for a mechanism slot when the story has a surprising number).
 
 | Video | Human variant | Mechanism variant | Scale or scene variant |
 |---|---|---|---|

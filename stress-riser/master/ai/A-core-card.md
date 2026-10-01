@@ -55,7 +55,7 @@ Details, image prompts, layouts and watch-outs are in C5. Slots and cousins are 
 | 9 | Seat of the Decider | human | 2003 Blackout; LAST ALARM / 2:14 PM | a decision room | words carry it; scene small | 2, 8 |
 | 10 | Close-Up Gaze | human | Flixborough 1974; NO DRAWING | one visible defect (fits almost any story) | strongest; survives blur | none |
 
-Rule for tests: one human style (10, 7 or 9), one mechanism style (4 or 5; Style 6 can replace it when the story has a surprising number) and one scale or scene style (1, 2, 3 or 8), never two close cousins together (1 and 8; 4 and 5; 2, 8 and 9). When unsure, use Styles 10, 2 and 1.
+Rule for tests: one human style (10, 7 or 9), one mechanism style (4 or 5; Style 6 can replace it when the story has a surprising number) and one scale or scene style (1, 2, 3 or 8), never two close cousins together. Forbidden pairs in one test: 1+8, 4+5, 2+8, 2+9 and 8+9; every other pair is allowed. When unsure, use Styles 10, 2 and 1.
 
 ### A5. Next steps and open decisions
 
@@ -72,7 +72,7 @@ Decisions needed from the owner (B5.3):
 
 ### A6. Task recipes
 
-**R1. Thumbnail concepts for a new video**
+**T1. Thumbnail concepts for a new video**
 
 1. Confirm the story is usable: not an ongoing legal case, at least two years old on the publication date, no terrorism, no medical or financial advice, politics only as regulatory facts (B1.2). Use only facts from the primary report and mark anything uncertain (B4.10). Compare with the registry (B2.7, C8).
 2. Write one line for the outcome and the human-stakes number. Pick one documented odd detail, one surprising non-casualty number if there is one, and one object to plant in the opening and bring back at the end.
@@ -83,14 +83,14 @@ Decisions needed from the owner (B5.3):
 
 Suggested output: one table with the columns variant, style, overlay words, image prompt, risk, facts to verify.
 
-**R2. Write an image-generation prompt.** Structure: scene, subject, details, constraints (B4.5, step 3). Describe what is there in positive terms ("a blank plain board", "a gauge with a needle and no marks"), because image models often ignore "no text". Attach the character sheet and append the master prompt block (C5). Leave a calm area for the words. After generation zoom to 100% and look for stray letters, numbers, hands, shoes and thick limbs; fix with a masked edit or paint over; add the words as a separate live text layer (B4.4); export sRGB, 16:9, under 2 MB (B4.5, step 7).
+**T2. Write an image-generation prompt.** Structure: scene, subject, details, constraints (B4.5, step 3). Describe what is there in positive terms ("a blank plain board", "a gauge with a needle and no marks"), because image models often ignore "no text". Attach the character sheet and append the master prompt block (C5). Leave a calm area for the words. After generation zoom to 100% and look for stray letters, numbers, hands, shoes and thick limbs; fix with a masked edit or paint over; add the words as a separate live text layer (B4.4); export sRGB, 16:9, under 2 MB (B4.5, step 7).
 
-**R3. Review a finished thumbnail.** Check in this order: (1) brief rules and the do-not list (B4.11); (2) policy (B4.9); (3) palette, fail pairs, red only on the culprit (B4.3); (4) text specification (B4.4); (5) the QA list at phone size, grayscale, blur, light and dark feed (B4.5, step 8); (6) the promise: everything shown is in the video by second 15 and the facts match the registry (B4.10). Report pass or fail per item with the measured value.
+**T3. Review a finished thumbnail.** Check in this order: (1) brief rules and the do-not list (B4.11); (2) policy (B4.9); (3) palette, fail pairs, red only on the culprit (B4.3); (4) text specification (B4.4); (5) the QA list at phone size, grayscale, blur, light and dark feed (B4.5, step 8); (6) the promise: everything shown is in the video by second 15 and the facts match the registry (B4.10). Report pass or fail per item with the measured value.
 
-**R4. Plan or read an A/B test.** Rules in B4.6, mechanics in B2.1, sample sizes in B2.6, log template in B5.2. Test concepts, not tweaks; upload the preferred variant first; do not edit during a test; never judge by CTR alone; decide by the rules in B4.6 (heuristics [C]); look for patterns across 8 to 10 videos (B5.1, P3).
+**T4. Plan or read an A/B test.** Rules in B4.6, mechanics in B2.1, sample sizes in B2.6, log template in B5.2. Test concepts, not tweaks; upload the preferred variant first; do not edit during a test; never judge by CTR alone; decide by the rules in B4.6 (heuristics [C]); look for patterns across 8 to 10 videos (B5.1, P3).
 
-**R5. Use a story.** Re-check the age filter and the legal status on the publication date; use only registry facts (C8, B2.7, D7); mark contested causes (Flixborough, Tacoma) as contested and avoid a thumbnail that asserts a single cause; keep figures anonymous; never blame individuals; avoid the myths in B3.1.
+**T5. Use a story.** Re-check the age filter and the legal status on the publication date; use only registry facts (C8, B2.7, D7); mark contested causes (Flixborough, Tacoma) as contested and avoid a thumbnail that asserts a single cause; keep figures anonymous; never blame individuals; avoid the myths in B3.1.
 
-**R6. A Short's first frame.** Frame 0 to 1 s: the outcome image plus a 3 to 6 word line; keep important content inside a central 2:3 crop; Shorts never carry an ask (brief); a custom cover is optional (B4.8, C10).
+**T6. A Short's first frame.** Frame 0 to 1 s: the outcome image plus a 3 to 6 word line; keep important content inside a central 2:3 crop; Shorts never carry an ask (brief); a custom cover is optional (B4.8, C10).
 
-**R7. Answer an evidence question.** Give the grade; say "no controlled study found" instead of implying causation; use B3.1 for "is it true that...?" questions; do not repeat statistics that B3.1 lists as untraceable.
+**T7. Answer an evidence question.** Give the grade; say "no controlled study found" instead of implying causation; use B3.1 for "is it true that...?" questions; do not repeat statistics that B3.1 lists as untraceable.

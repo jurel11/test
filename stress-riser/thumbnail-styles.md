@@ -212,7 +212,7 @@ Files: `thumbnails/NN-*.png` (final composite), `thumbnails/art-only/NN-*-art.pn
 | 9 | Seat of the Decider | 2 | words carry it; scene is small | medium | timeline; small scene |
 | 10 | Close-Up Gaze | 2 | **strongest**; survives blur | **high** | dot-eye fear untested |
 
-**Which styles are close cousins** (do not put them in the same test): 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene plus a hidden cause). **Suggested test trios:** one *human* style (10, 7 or 9), one *mechanism* style (4 or 5) and one *scale/scene* style (1, 2, 3 or 8), never two cousins together (9 goes with 1 or 3, not with 2 or 8). Alternate background families across consecutive videos.
+**Which styles are close cousins** (do not put them in the same test): 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene plus a hidden cause). As pairs, these must not appear together in one test: 1+8, 4+5, 2+8, 2+9 and 8+9; every other pair is allowed. **Suggested test trios:** one *human* style (10, 7 or 9), one *mechanism* style (4 or 5) and one *scale/scene* style (1, 2, 3 or 8), never two cousins together (9 goes with 1 or 3, not with 2 or 8). Alternate background families across consecutive videos.
 
 **Style × story type** (my judgment, not tested):
 

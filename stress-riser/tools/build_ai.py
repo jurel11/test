@@ -160,7 +160,11 @@ def part_d():
     out = ["## D. The eight research reports (verbatim source layer)\n\n"
            "These are the final reports of the eight research agents, unedited except that long scratch-folder paths were shortened. "
            "They were written before the reviews. Where they disagree with Parts A, B, C or F, those parts win (known conflicts: B3.2). "
-           "Read them for detail, quotations and the source list at the end of each report."]
+           "Read them for detail, quotations and the source list at the end of each report.\n\n"
+           "Known issues inside the reports (corrected in Parts B and C):\n\n"
+           "- Ink Explainer's subscriber count: D2 and D5 also cite 77.8K (\"at month 8\", from a third-party case study), while D4, D5 and D8 read 106K from the channel page. Use 106K (B3.2 #22).\n"
+           "- D1 lists \"no company logos\" among its hard constraints; that is D1's own inference from trademark enforcement, not wording from the YouTube Help page (B2.1).\n"
+           "- Shorts cover minimum size: D1 says minimum height 640 px, D8 says minimum width 640 px (B3.2 #23)."]
     for id_, slug, title in D_LIST:
         md = read(M, "reports", slug + ".md")
         if slug == "story-visuals":
@@ -252,9 +256,12 @@ def headings(text):
 
 def make_map(text):
     hs = headings(text)
-    rows = []
+    rows, part = [], ""
     for i, (n, lvl, title) in enumerate(hs):
-        if lvl not in (2, 3) or title.startswith("0.") or title.startswith("0 "):
+        if lvl == 2:
+            part = title[:2].rstrip(".")
+        wanted = lvl in (2, 3) or (lvl == 4 and part in ("B", "C"))
+        if not wanted or title.startswith("0.") or title.startswith("0 "):
             continue
         end = len(text.split("\n"))
         for n2, lvl2, _ in hs[i + 1:]:
@@ -262,7 +269,7 @@ def make_map(text):
                 end = n2 - 1
                 break
         w = words("\n".join(text.split("\n")[n - 1:end]))
-        rows.append(f"L{n:<6d}{'  ' if lvl == 3 else ''}{'#' * lvl} {title} ({w:,} words)")
+        rows.append(f"L{n:<6d}{'  ' * (lvl - 2)}{'#' * lvl} {title} ({w:,} words)")
     return "```text\n" + "\n".join(rows) + "\n```"
 
 
@@ -279,6 +286,12 @@ def main():
     # the map must describe the final file: verify the fixed point
     if make_map(final) != make_map(text2):
         sys.exit("build_ai: map did not converge")
+    # every map row must point at its heading
+    flines = final.split("\n")
+    for row in make_map(final).split("\n")[1:-1]:
+        m = re.match(r"^L(\d+)\s+(#+) (.*) \([\d,]+ words\)$", row)
+        if not m or flines[int(m.group(1)) - 1] != f"{m.group(2)} {m.group(3)}":
+            sys.exit(f"build_ai: map row does not match its heading: {row[:80]}")
     open(OUT, "w", encoding="utf-8").write(final.rstrip("\n") + "\n")
     w, c = words(final), len(final)
     print(f"wrote {OUT}  {c/1e3:,.0f} KB  words={w:,}  lines={final.count(chr(10)):,}  approx tokens={int(c/3.9):,}")

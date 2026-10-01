@@ -19,7 +19,7 @@ Priorities: **P1** do before the first upload; **P2** do for every video; **P3**
 
 - **Starter trio for almost any story:** Style 10 (Close-Up Gaze), Style 2 (The Moment Before), Style 1 (Tiny Under the Giant).
 - **Conditional on the story:** Style 3 (needs a true odd image), Style 6 (needs a good non-casualty number), Style 7 (needs an odd, documented detail), Style 8 (needs a visible flaw and a crowd), Style 9 (needs a decision room), Style 4 and 5 (a small part or hidden mechanism).
-- **Close cousins: never put in the same test:** 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene with a hidden cause; the design review counts them as one idea).
+- **Close cousins: never put in the same test:** 1 and 8 (big object plus small figures), 4 and 5 (a small part shown huge), 2, 8 and 9 (a calm scene with a hidden cause; the design review counts them as one idea). As pairs, these must not appear together in one test: 1+8, 4+5, 2+8, 2+9 and 8+9; every other pair is allowed.
 - **Suggested test trio:** one *human* style (10, 7 or 9), one *mechanism* style (4 or 5), one *scale or scene* style (1, 2, 3 or 8), never two cousins together (so 9 goes with 1 or 3, not with 2 or 8). Alternate background families between consecutive videos.
 - **Strongest at phone size in the check:** Styles 6 and 10. For Styles 7, 8 and 9 the words carry the thumbnail; props and small details vanish at 168 px.
 - The style × story matrix is in section C6.
